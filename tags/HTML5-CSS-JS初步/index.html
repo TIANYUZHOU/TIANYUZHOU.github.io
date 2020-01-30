@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 417 个字)
+                    6 分钟 读完 (大约 910 个字)
                 </span>
                 
                 
@@ -295,6 +295,106 @@ var _hmt = _hmt || [];
 <td align="center">下标</td>
 </tr>
 </tbody></table>
+<h3 id="3-块元素和行内元素"><a href="#3-块元素和行内元素" class="headerlink" title="3.块元素和行内元素"></a>3.块元素和行内元素</h3><ul>
+<li><p>HTML元素根据浏览器表现形式分为两类：①块元素；②行内元素</p>
+</li>
+<li><p>块元素特点：</p>
+<ol>
+<li>独占一行，排斥其他元素跟其位于同一行，包括块元素和行内元素；</li>
+<li>块元素内部可以容纳其他块元素或行元素；</li>
+</ol>
+<p>常见块元素：h1~h6、p、hr、div</p>
+</li>
+<li><p>行内元素特点：</p>
+<ol>
+<li>可以与其他行内元素位于同一行；</li>
+<li>行内内部可以容纳其他行内元素，但不可以容纳块元素，不然会出现无法预知的效果；</li>
+</ol>
+<p>常见行内元素有：strong、em、span</p>
+</li>
+</ul>
+<h2 id="三、列表"><a href="#三、列表" class="headerlink" title="三、列表"></a>三、列表</h2><table>
+<thead>
+<tr>
+<th align="center">标签</th>
+<th align="center">语义</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ol</td>
+<td align="center">ordered list</td>
+<td align="center">有序列表</td>
+</tr>
+<tr>
+<td align="center">ul</td>
+<td align="center">unordered list</td>
+<td align="center">无序列表</td>
+</tr>
+<tr>
+<td align="center">dl</td>
+<td align="center">definition list</td>
+<td align="center">定义列表</td>
+</tr>
+</tbody></table>
+<h3 id="1-有序列表"><a href="#1-有序列表" class="headerlink" title="1.有序列表"></a>1.有序列表</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>有序列表项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>有序列表项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>有序列表项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">type属性值</th>
+<th align="center">列表项的序号类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1、2、3……</td>
+</tr>
+<tr>
+<td align="center">a</td>
+<td align="center">a、b、c……</td>
+</tr>
+<tr>
+<td align="center">A</td>
+<td align="center">A、B、C……</td>
+</tr>
+<tr>
+<td align="center">i</td>
+<td align="center">i、ii、iii……</td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="center">I、II、III……</td>
+</tr>
+</tbody></table>
+<p>学习CSS之后，有序列表列表项符号更常用list-style-type属性定义。</p>
+<h3 id="2-无序列表"><a href="#2-无序列表" class="headerlink" title="2.无序列表"></a>2.无序列表</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>  <span class="attr">type</span>=<span class="string">"列表项符号"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>无序列表项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>无序列表项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>无序列表项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="center">type属性值</th>
+<th align="center">列表项的序号类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">disc</td>
+<td align="center">默认值，实心圆“●”</td>
+</tr>
+<tr>
+<td align="center">circle</td>
+<td align="center">空心圆“○”</td>
+</tr>
+<tr>
+<td align="center">square</td>
+<td align="center">实心正方形“■”</td>
+</tr>
+</tbody></table>
+<p>学习CSS之后，无序列表列表项符号更常用list-style-type属性定义。</p>
+<h3 id="3-定义列表"><a href="#3-定义列表" class="headerlink" title="3.定义列表"></a>3.定义列表</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>定义名词<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>定义描述<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    ……</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>&lt;dl&gt;</code>即“definition list（定义列表）”，<code>&lt;dt&gt;</code>即“definition term（定义名词）”，而<code>&lt;dd&gt;</code>即“definition description（定义描述）”。</li>
+<li>在该语法中，<code>&lt;dl&gt;</code>标记和<code>&lt;/dl&gt;</code>标记分别定义了定义列表的开始和结束，<code>&lt;dt&gt;</code>后面添加要解释的名词，而在<code>&lt;dd&gt;</code>后面则添加该名词的具体解释。</li>
+</ul>
 
         </div>
         
