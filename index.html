@@ -142,6 +142,170 @@ var _hmt = _hmt || [];
 <div class="card">
     
     <div class="card-image">
+        <a href="/2020/01/30/HTML5-CSS-JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="image is-7by1">
+            <img class="thumbnail" src="/Mainpic/5.jpg" alt="HTML5+CSS+JS学习笔记">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-01-30T04:58:41.000Z">2020-01-30</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 417 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/01/30/HTML5-CSS-JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">HTML5+CSS+JS学习笔记</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="关于HTML"><a href="#关于HTML" class="headerlink" title="关于HTML"></a>关于HTML</h2><ul>
+<li>HTML，全称“Hyper Text Markup Language（超文本标记语言）”，简单来说，网页就是用HTML语言制作的。</li>
+<li>HTML5是Web中核心语言HTML的规范，用户使用任何手段进行网页浏览时看到的内容原本都是HTML格式的，在浏览器中通过一些技术处理将其转换成为了可识别的信息。<h2 id="最小的HTML5文档"><a href="#最小的HTML5文档" class="headerlink" title="最小的HTML5文档"></a>最小的HTML5文档</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>文档标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">文档内容......</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+注意：对于中文网页需要使用<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>声明编码，否则会出现乱码。</li>
+</ul>
+<h2 id="一、HTML5基本标签"><a href="#一、HTML5基本标签" class="headerlink" title="一、HTML5基本标签"></a>一、HTML5基本标签</h2><h3 id="1-HTML标签"><a href="#1-HTML标签" class="headerlink" title="1.HTML标签"></a>1.HTML标签</h3><p>整个网页是从 <code>&lt;html&gt;</code>这里开始的，然后到<code>&lt;/html&gt;</code>结束。</p>
+<h3 id="2-head标签"><a href="#2-head标签" class="headerlink" title="2.head标签"></a>2.head标签</h3><p>head标签代表页面的“头”，定义一些特殊内容，多数内容在浏览器中不可见。</p>
+<table>
+<thead>
+<tr>
+<th align="center">head标签</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>&lt;title&gt;</code></td>
+<td align="center">定义网页的标题</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;meta&gt;</code></td>
+<td align="center">定义网页的基本信息（供搜索引擎）</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;style&gt;</code></td>
+<td align="center">定义CSS样式</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;link&gt;</code></td>
+<td align="center">链接外部CSS文件或脚本文件</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;script&gt;</code></td>
+<td align="center">定义脚本语言</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;base&gt;</code></td>
+<td align="center">定义页面所有链接的基础定位（用得很少）</td>
+</tr>
+</tbody></table>
+<h3 id="3-body标签"><a href="#3-body标签" class="headerlink" title="3.body标签"></a>3.body标签</h3><p>body标签代表页面的“身”，定义网页展示内容，在浏览器中往往可见。</p>
+<h2 id="二、段落与文字"><a href="#二、段落与文字" class="headerlink" title="二、段落与文字"></a>二、段落与文字</h2><h3 id="1-段落标签"><a href="#1-段落标签" class="headerlink" title="1.段落标签"></a>1.段落标签</h3><table>
+<thead>
+<tr>
+<th align="center">标签</th>
+<th align="center">语义</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>&lt;h1&gt;~&lt;h6&gt;</code></td>
+<td align="center">header</td>
+<td align="center">标题</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;p&gt;</code></td>
+<td align="center">paragraph</td>
+<td align="center">段落</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;br&gt;</code></td>
+<td align="center">break</td>
+<td align="center">换行</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;hr&gt;</code></td>
+<td align="center">horizontal rule</td>
+<td align="center">水平线</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;div&gt;</code></td>
+<td align="center">division</td>
+<td align="center">分割（块元素）</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;span&gt;</code></td>
+<td align="center">span</td>
+<td align="center">区域（行内元素）</td>
+</tr>
+</tbody></table>
+<h3 id="2-文本格式化标签"><a href="#2-文本格式化标签" class="headerlink" title="2.文本格式化标签"></a>2.文本格式化标签</h3><table>
+<thead>
+<tr>
+<th align="center">标签</th>
+<th align="center">语义</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>&lt;st&gt;</code></td>
+<td align="center">strong（加强）</td>
+<td align="center">加粗</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;em&gt;</code></td>
+<td align="center">emphasized（强调）</td>
+<td align="center">斜体</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;cite&gt;</code></td>
+<td align="center">cite（引用）</td>
+<td align="center">斜体</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;sup&gt;</code></td>
+<td align="center">superscripted（上标）</td>
+<td align="center">上标</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;sub&gt;</code></td>
+<td align="center">subscripted（下标）</td>
+<td align="center">下标</td>
+</tr>
+</tbody></table>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
         <a href="/2020/01/25/%E4%BA%91%E5%8D%97%E9%A3%8E%E6%99%AF/" class="image is-7by1">
             <img class="thumbnail" src="/Mainpic/4.jpg" alt="云南风景">
         </a>
@@ -241,10 +405,10 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             
-        <div id="aplayer-pvbrGNiq" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
+        <div id="aplayer-oHbPyAJl" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
 			  <script>
 				  var options = {"narrow":false,"autoplay":true,"showlrc":3,"mode":"random","mutex":true,"theme":"#e6d0b2","preload":"metadata","listmaxheight":"513px","music":[{"title":"稻香","author":"周杰伦","url":"/2020/01/19/歌单/dx.mp3","pic":"/2020/01/19/歌单/jay.jpg","lrc":"dx.lrc"},{"title":"一路向北","author":"周杰伦","url":"/2020/01/19/歌单/ylxb.mp3","pic":"/2020/01/19/歌单/jay.jpg","lrc":"ylxb.lrc"},{"title":"Mine Mine","author":"周杰伦","url":"/2020/01/19/歌单/周杰伦%20-%20MI%20NE%20%20MI%20NE%20.mp3","pic":"/2020/01/19/歌单/jay.jpg","lrc":"周杰伦 - MI NE  MI NE .lrc"},{"title":"枫","author":"周杰伦","url":"/2020/01/19/歌单/周杰伦%20-%20枫.mp3","pic":"/2020/01/19/歌单/jay.jpg","lrc":"周杰伦 - 枫.lrc"},{"title":"你听得到","author":"周杰伦","url":"/2020/01/19/歌单/周杰伦%20-%20你%20听%20得到.mp3","pic":"/2020/01/19/歌单/jay.jpg","lrc":"周杰伦 - 你 听 得到.lrc"},{"title":"七里香","author":"周杰伦","url":"/2020/01/19/歌单/周杰伦%20-%20七里香.mp3","pic":"/2020/01/19/歌单/jay.jpg","lrc":"周杰伦 - 七里香.lrc"},{"title":"青花瓷","author":"周杰伦","url":"/2020/01/19/歌单/周杰伦%20-%20青花%20瓷.mp3","pic":"/2020/01/19/歌单/jay.jpg","lrc":"周杰伦 - 青花 瓷.lrc"},{"title":"晴天","author":"周杰伦","url":"/2020/01/19/歌单/周杰伦%20-%20晴%20天.mp3","pic":"/2020/01/19/歌单/jay.jpg","lrc":"周杰伦 - 晴 天.lrc"},{"title":"夜的第七章","author":"周杰伦","url":"/2020/01/19/歌单/周杰伦%20-%20夜%20的第%20七%20章.mp3","pic":"/2020/01/19/歌单/jay.jpg","lrc":"周杰伦 - 夜 的第 七 章.lrc"},{"title":"说好不哭","author":"周杰伦&五月天阿信","url":"/2020/01/19/歌单/周杰伦%20-%20说好不哭.mp3","pic":"/2020/01/19/歌单/jay.jpg","lrc":"周杰伦 - 说好不哭.lrc"},{"title":"我是如此相信","author":"周杰伦","url":"/2020/01/19/歌单/周杰伦%20-%20我是如此相信.mp3","pic":"/2020/01/19/歌单/jay.jpg","lrc":"周杰伦 - 我是如此相信.lrc"}]};
-				  options.element = document.getElementById("aplayer-pvbrGNiq");
+				  options.element = document.getElementById("aplayer-oHbPyAJl");
 				  var ap = new APlayer(options);
 			    window.aplayers || (window.aplayers = []);
 				  window.aplayers.push(ap);
@@ -440,7 +604,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            4
+                            5
                         </p>
                     </a>
                 </div>
@@ -452,7 +616,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            3
+                            4
                         </p>
                     </a>
                 </div>
@@ -464,7 +628,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            4
+                            5
                         </p>
                     </a>
                 </div>
@@ -575,6 +739,14 @@ var _hmt = _hmt || [];
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+            <span class="level-start">
+                <span class="level-item">学习笔记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/%E6%91%84%E4%B8%8E%E5%BD%B1/">
             <span class="level-start">
                 <span class="level-item">摄与影</span>
@@ -601,7 +773,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95/" style="font-size: 10px;">我的歌单</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" style="font-size: 10px;">第一篇文章</a> <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E6%8F%92%E4%BB%B6%E5%B0%8F%E5%9D%91/" style="font-size: 10px;">网易云插件小坑</a>
+        <a href="/tags/HTML5-CSS-JS%E5%88%9D%E6%AD%A5/" style="font-size: 10px;">HTML5+CSS+JS初步</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95/" style="font-size: 10px;">我的歌单</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" style="font-size: 10px;">第一篇文章</a> <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E6%8F%92%E4%BB%B6%E5%B0%8F%E5%9D%91/" style="font-size: 10px;">网易云插件小坑</a>
     </div>
 </div>
     
@@ -613,6 +785,25 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/01/30/HTML5-CSS-JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/Mainpic/5.jpg" alt="HTML5+CSS+JS学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-30T04:58:41.000Z">2020-01-30</time></div>
+                    <a href="/2020/01/30/HTML5-CSS-JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTML5+CSS+JS学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -707,7 +898,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -724,6 +915,13 @@ var _hmt = _hmt || [];
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTML5-CSS-JS%E5%88%9D%E6%AD%A5/">
+                        <span class="tag">HTML5+CSS+JS初步</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95/">
@@ -777,6 +975,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2020/01/30/HTML5-CSS-JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/Mainpic/5.jpg" alt="HTML5+CSS+JS学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-30T04:58:41.000Z">2020-01-30</time></div>
+                    <a href="/2020/01/30/HTML5-CSS-JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTML5+CSS+JS学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/01/25/%E4%BA%91%E5%8D%97%E9%A3%8E%E6%99%AF/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/Mainpic/4.jpg" alt="云南风景">
@@ -868,7 +1085,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -885,6 +1102,13 @@ var _hmt = _hmt || [];
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTML5-CSS-JS%E5%88%9D%E6%AD%A5/">
+                        <span class="tag">HTML5+CSS+JS初步</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95/">
