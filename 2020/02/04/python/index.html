@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://tianyuzhou.github.io/Mainpic/8.jpg">
 <meta property="article:published_time" content="2020-02-04T04:03:56.000Z">
-<meta property="article:modified_time" content="2020-02-05T11:17:02.973Z">
+<meta property="article:modified_time" content="2020-02-06T05:00:59.509Z">
 <meta property="article:author" content="周天宇">
 <meta property="article:tag" content="Python学习">
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    14 分钟 读完 (大约 2143 个字)
+                    20 分钟 读完 (大约 3055 个字)
                 </span>
                 
                 
@@ -344,7 +344,7 @@ var _hmt = _hmt || [];
 <p>  斐波那契数列（Fibonacci sequence），又称黄金分割数列，是意大利数学家莱昂纳多·斐波那契（Leonardoda Fibonacci）在《计算之书》中提出一个在理想假设条件下兔子成长率的问题而引入的数列，所以这个数列也被戏称为”兔子数列”。斐波那契数列的特点是数列的前两个数都是1，从第三个数开始，每个数都是它前面两个数的和，形如：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …。</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">0</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    a, b = b, a + b</span><br><span class="line">    print(a, end=<span class="string">' '</span>)</span><br></pre></td></tr></table></figure>
 
-<p>  值得注意的是<code>a, b = b, a + b</code>是并列赋值语句，他与下列语句处理的结果是不同的！前者a和b同时被赋值，后者a先于b被赋值。</p>
+<p>  值得注意的是<code>a, b = b, a + b</code>是并列赋值语句，它与下列语句处理的结果是不同的！前者a和b同时被赋值，后者a先于b被赋值。</p>
    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = b</span><br><span class="line">b = a + b</span><br></pre></td></tr></table></figure>
 
 </li>
@@ -380,6 +380,45 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
+<h2 id="字符串和常用数据结构"><a href="#字符串和常用数据结构" class="headerlink" title="字符串和常用数据结构"></a>字符串和常用数据结构</h2><h3 id="字符串的使用"><a href="#字符串的使用" class="headerlink" title="字符串的使用"></a>字符串的使用</h3><ul>
+<li><p>在Python中，字符用单引号或者双引号包围起来，表示一个字符串。</p>
+</li>
+<li><p>以三个<strong>双引号或单引号</strong>开头的字符串可以折行。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">'我是字符串！'</span></span><br><span class="line">s2 = <span class="string">"我是字符串！"</span></span><br><span class="line">s3 = <span class="string">"""我是\</span></span><br><span class="line"><span class="string">字符串！"""</span></span><br><span class="line">s4 = <span class="string">'''我是\</span></span><br><span class="line"><span class="string">字符串！'''</span></span><br><span class="line">print(s1, s2, s3, s4 , end=<span class="string">''</span>)</span><br><span class="line"><span class="comment">#输出结果：我是字符串！ 我是字符串！ 我是字符串！ 我是字符串！</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明：可以在字符串中使用<code>\</code>（反斜杠）来表示转义，也就是说<code>\</code>后面的字符不再是它原来的意义，例如：<code>\n</code>不是代表反斜杠和字符<code>n</code>，而是表示换行；而<code>\t</code>也不是代表反斜杠和字符<code>t</code>，而是表示制表符。</p>
+<ul>
+<li><p>如果不希望字符串中的\表示转义，我们可以通过在字符串的最前面加上字母r来加以说明。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">r'\'你好世界！\''</span></span><br><span class="line">s2 = <span class="string">r'\n\\你好世界！\\\n'</span></span><br><span class="line">print(s1)</span><br><span class="line">print(s2)</span><br><span class="line"><span class="string">'''输出结果：</span></span><br><span class="line"><span class="string">\'你好世界！\'</span></span><br><span class="line"><span class="string">\n\\你好世界！\\\n</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Python为字符串类型提供了非常丰富的运算符，我们可以使用<code>+</code>运算符来实现字符串的拼接，可以使用<code>*</code>运算符来重复一个字符串的内容，可以使用<code>in</code>和<code>not in</code>来判断一个字符串是否包含另外一个字符串（成员运算），我们也可以用<code>[]</code>和<code>[:]</code>运算符从字符串取出某个字符或某些字符（切片运算）。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">'hello '</span> * <span class="number">3</span></span><br><span class="line">print(s1) <span class="comment"># hello hello hello</span></span><br><span class="line">s2 = <span class="string">'world'</span></span><br><span class="line">s1 += s2</span><br><span class="line">print(s1) <span class="comment"># hello hello hello world</span></span><br><span class="line">print(<span class="string">'ll'</span> <span class="keyword">in</span> s1) <span class="comment"># True</span></span><br><span class="line">print(<span class="string">'good'</span> <span class="keyword">in</span> s1) <span class="comment"># False</span></span><br><span class="line">str2 = <span class="string">'abc123456'</span></span><br><span class="line"><span class="comment"># 从字符串中取出指定位置的字符(下标运算)</span></span><br><span class="line">print(str2[<span class="number">2</span>]) <span class="comment"># c</span></span><br><span class="line"><span class="comment"># 字符串切片(从指定的开始索引到指定的结束索引)</span></span><br><span class="line">print(str2[<span class="number">2</span>:<span class="number">5</span>]) <span class="comment"># c12</span></span><br><span class="line">print(str2[<span class="number">2</span>:]) <span class="comment"># c123456</span></span><br><span class="line">print(str2[<span class="number">2</span>::<span class="number">2</span>]) <span class="comment"># c246</span></span><br><span class="line">print(str2[::<span class="number">2</span>]) <span class="comment"># ac246</span></span><br><span class="line">print(str2[::<span class="number">-1</span>]) <span class="comment"># 654321cba</span></span><br><span class="line">print(str2[<span class="number">-3</span>:<span class="number">-1</span>]) <span class="comment"># 45</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>没有步长的切片：我们用的语法是 <code>s[start: stop]</code></li>
+<li>有步长的切片：我们用的语法是 <code>s[start:stop:stride]</code></li>
+</ul>
+</li>
+<li><p>格式化输出字符串的三种方法，例：<code>a * b = 50</code></p>
+<ul>
+<li><p>常规</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a, b &#x3D; 5, 10</span><br><span class="line">print(&#39;%d * %d &#x3D; %d&#39; % (a, b, a * b))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a, b = <span class="number">5</span>, <span class="number">10</span></span><br><span class="line">print(<span class="string">'&#123;0&#125; * &#123;1&#125; = &#123;2&#125;'</span>.format(a, b, a * b))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a, b = <span class="number">5</span>, <span class="number">10</span></span><br><span class="line">print(<span class="string">f'<span class="subst">&#123;a&#125;</span> * <span class="subst">&#123;b&#125;</span> = <span class="subst">&#123;a * b&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>其他对字符串的操作</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">'hello, world!'</span></span><br><span class="line"><span class="comment"># 通过内置函数len计算字符串的长度</span></span><br><span class="line">print(len(str1)) <span class="comment"># 13</span></span><br><span class="line"><span class="comment"># 获得字符串首字母大写的拷贝</span></span><br><span class="line">print(str1.capitalize()) <span class="comment"># Hello, world!</span></span><br><span class="line"><span class="comment"># 获得字符串每个单词首字母大写的拷贝</span></span><br><span class="line">print(str1.title()) <span class="comment"># Hello, World!</span></span><br><span class="line"><span class="comment"># 获得字符串变大写后的拷贝</span></span><br><span class="line">print(str1.upper()) <span class="comment"># HELLO, WORLD!</span></span><br><span class="line"><span class="comment"># 从字符串中查找子串所在位置</span></span><br><span class="line">print(str1.find(<span class="string">'or'</span>)) <span class="comment"># 8</span></span><br><span class="line">print(str1.find(<span class="string">'shit'</span>)) <span class="comment"># -1</span></span><br><span class="line"><span class="comment"># 与find类似但找不到子串时会引发异常</span></span><br><span class="line"><span class="comment"># print(str1.index('or'))</span></span><br><span class="line"><span class="comment"># print(str1.index('shit'))</span></span><br><span class="line"><span class="comment"># 检查字符串是否以指定的字符串开头</span></span><br><span class="line">print(str1.startswith(<span class="string">'He'</span>)) <span class="comment"># False</span></span><br><span class="line">print(str1.startswith(<span class="string">'hel'</span>)) <span class="comment"># True</span></span><br><span class="line"><span class="comment"># 检查字符串是否以指定的字符串结尾</span></span><br><span class="line">print(str1.endswith(<span class="string">'!'</span>)) <span class="comment"># True</span></span><br><span class="line"><span class="comment"># 将字符串以指定的宽度居中并在两侧填充指定的字符</span></span><br><span class="line">print(str1.center(<span class="number">50</span>, <span class="string">'*'</span>))</span><br><span class="line"><span class="comment"># 将字符串以指定的宽度靠右放置左侧填充指定的字符</span></span><br><span class="line">print(str1.rjust(<span class="number">50</span>, <span class="string">' '</span>))</span><br><span class="line">str2 = <span class="string">'abc123456'</span></span><br><span class="line"><span class="comment"># 检查字符串是否由数字构成</span></span><br><span class="line">print(str2.isdigit())  <span class="comment"># False</span></span><br><span class="line"><span class="comment"># 检查字符串是否以字母构成</span></span><br><span class="line">print(str2.isalpha())  <span class="comment"># False</span></span><br><span class="line"><span class="comment"># 检查字符串是否以数字和字母构成</span></span><br><span class="line">print(str2.isalnum())  <span class="comment"># True</span></span><br><span class="line">str3 = <span class="string">'  jackfrued@126.com '</span></span><br><span class="line">print(str3)</span><br><span class="line"><span class="comment"># 获得字符串修剪左右两侧空格之后的拷贝</span></span><br><span class="line">print(str3.strip())</span><br></pre></td></tr></table></figure>
 
         </div>
         
