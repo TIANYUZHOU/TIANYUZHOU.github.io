@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://tianyuzhou.github.io/Mainpic/8.jpg">
 <meta property="article:published_time" content="2020-02-04T04:03:56.000Z">
-<meta property="article:modified_time" content="2020-02-07T05:07:58.513Z">
+<meta property="article:modified_time" content="2020-02-07T11:14:52.563Z">
 <meta property="article:author" content="周天宇">
 <meta property="article:tag" content="Python学习">
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    24 分钟 读完 (大约 3620 个字)
+                    26 分钟 读完 (大约 3913 个字)
                 </span>
                 
                 
@@ -429,19 +429,44 @@ var _hmt = _hmt || [];
 </li>
 <li><p>添加或移除元素</p>
 <ul>
-<li><p>添加元素</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">100</span>]</span><br><span class="line"><span class="comment"># 在最后延长</span></span><br><span class="line">list1.append(<span class="number">200</span>)</span><br><span class="line"><span class="comment"># 在下表1位置插入</span></span><br><span class="line">list1.insert(<span class="number">1</span>, <span class="number">400</span>)</span><br><span class="line"><span class="comment"># 合并两个列表</span></span><br><span class="line">list1.extend([<span class="number">1000</span>, <span class="number">2000</span>])</span><br><span class="line"><span class="comment"># list1 += [1000, 2000]</span></span><br><span class="line">print(list1) <span class="comment"># [1, 400, 3, 5, 7, 100, 200, 1000, 2000]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>移除元素</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先通过成员运算判断元素是否在列表中，如果存在就删除该元素</span></span><br><span class="line"><span class="keyword">if</span> <span class="number">3</span> <span class="keyword">in</span> list1:</span><br><span class="line">    list1.remove(<span class="number">3</span>)</span><br><span class="line">print(list1) <span class="comment"># [1, 400, 5, 7, 100, 200, 1000, 2000]</span></span><br><span class="line"><span class="comment"># 从指定的位置删除元素</span></span><br><span class="line">list1.pop(<span class="number">0</span>) <span class="comment"># 删除下标为0的元素</span></span><br><span class="line">list1.pop(len(list1) - <span class="number">1</span>) <span class="comment"># 删除表末元素（根据下标）</span></span><br><span class="line">print(list1) <span class="comment"># [400, 5, 7, 100, 200, 1000]</span></span><br><span class="line"><span class="comment"># 清空列表元素</span></span><br><span class="line">list1.clear()</span><br></pre></td></tr></table></figure>
-</li>
+<li>添加元素</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">100</span>]</span><br><span class="line"><span class="comment"># 在最后延长</span></span><br><span class="line">list1.append(<span class="number">200</span>)</span><br><span class="line"><span class="comment"># 在下表1位置插入</span></span><br><span class="line">list1.insert(<span class="number">1</span>, <span class="number">400</span>)</span><br><span class="line"><span class="comment"># 合并两个列表</span></span><br><span class="line">list1.extend([<span class="number">1000</span>, <span class="number">2000</span>])</span><br><span class="line"><span class="comment"># list1 += [1000, 2000]</span></span><br><span class="line">print(list1) <span class="comment"># [1, 400, 3, 5, 7, 100, 200, 1000, 2000]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>移除元素</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先通过成员运算判断元素是否在列表中，如果存在就删除该元素</span></span><br><span class="line"><span class="keyword">if</span> <span class="number">3</span> <span class="keyword">in</span> list1:</span><br><span class="line">    list1.remove(<span class="number">3</span>)</span><br><span class="line">print(list1) <span class="comment"># [1, 400, 5, 7, 100, 200, 1000, 2000]</span></span><br><span class="line"><span class="comment"># 从指定的位置删除元素</span></span><br><span class="line">list1.pop(<span class="number">0</span>) <span class="comment"># 删除下标为0的元素</span></span><br><span class="line">list1.pop(len(list1) - <span class="number">1</span>) <span class="comment"># 删除表末元素（根据下标）</span></span><br><span class="line">print(list1) <span class="comment"># [400, 5, 7, 100, 200, 1000]</span></span><br><span class="line"><span class="comment"># 清空列表元素</span></span><br><span class="line">list1.clear()</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>和字符串一样，列表也可以做切片操作，通过切片操作我们可以实现对列表的复制或者将列表中的一部分取出来创建出新的列表。操作方法类似，就不例举了。</p>
 </li>
 <li><p>排序操作</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">'orange'</span>, <span class="string">'apple'</span>, <span class="string">'zoo'</span>, <span class="string">'internationalization'</span>, <span class="string">'blueberry'</span>]</span><br><span class="line"><span class="comment"># sorted函数返回列表排序后的拷贝不会修改传入的列表</span></span><br><span class="line">list2 = sorted(list1)</span><br><span class="line"><span class="comment"># 倒序排序</span></span><br><span class="line">list3 = sorted(list1, reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 通过key关键字参数指定根据字符串长度进行排序而不是默认的字母表顺序</span></span><br><span class="line">list4 = sorted(list1, key=len)</span><br><span class="line"><span class="comment"># 给列表对象发出排序消息直接在列表对象上进行排序（直接改变list1）</span></span><br><span class="line">list1.sort(reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
 </li>
+</ul>
+</li>
+</ul>
+<h3 id="生成式和生成器"><a href="#生成式和生成器" class="headerlink" title="生成式和生成器"></a>生成式和生成器</h3><ul>
+<li><p>用列表的生成表达式语法创建列表容器-生成式</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f = [x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>)]</span><br><span class="line">print(f) <span class="comment"># [1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span><br><span class="line"></span><br><span class="line">f = [x + y <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">'AB'</span> <span class="keyword">for</span> y <span class="keyword">in</span> <span class="string">'123'</span>]</span><br><span class="line">print(f) <span class="comment"># ['A1', 'A2', 'A3', 'B1', 'B2', 'B3']</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用这种语法创建列表之后元素已经准备就绪所以<strong>需要耗费较多的内存空间</strong>。</li>
+</ul>
+</li>
+<li><p>通过生成器获取到数据-生成器</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">f = (x ** <span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>))</span><br><span class="line">print(sys.getsizeof(f))  <span class="comment"># 120</span></span><br><span class="line">print(f) <span class="comment"># &lt;generator object &lt;genexpr&gt; at 0x000001FE58DBA4F8&gt;</span></span><br><span class="line"><span class="keyword">for</span> val <span class="keyword">in</span> f:</span><br><span class="line">    print(val, end=<span class="string">' '</span>) <span class="comment"># 1 4 9 16 25 36 49 64 81</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生成器可以获取到数据但它不占用额外的空间存储数据,每次需要数据的时候就通过内部的运算得到数据<strong>需要花费额外的时间</strong>。</li>
+</ul>
+</li>
+<li><p>生成器定义的其他方式-通过<code>yield</code>关键字将一个普通函数改造成生成器函数。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 斐波拉切数列</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></span><br><span class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(n):</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        <span class="keyword">yield</span> a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> val <span class="keyword">in</span> fib(<span class="number">20</span>):</span><br><span class="line">        print(val)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>简单理解：<code>yield</code>就是<code>return</code>返回一个值，并且记住这个返回的位置，下次迭代就从这个位置后(下一行)开始。</li>
 </ul>
 </li>
 </ul>
