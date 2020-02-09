@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://tianyuzhou.github.io/Mainpic/8.jpg">
 <meta property="article:published_time" content="2020-02-04T04:03:56.000Z">
-<meta property="article:modified_time" content="2020-02-09T11:33:55.957Z">
+<meta property="article:modified_time" content="2020-02-09T12:05:16.675Z">
 <meta property="article:author" content="周天宇">
 <meta property="article:tag" content="Python学习">
 <meta name="twitter:card" content="summary">
@@ -520,11 +520,11 @@ var _hmt = _hmt || [];
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_</span><span class="params">(fname,has_dot = False)</span>:</span></span><br><span class="line">    pos = fname.rfind(<span class="string">'.'</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="number">0</span> &lt; pos &lt; len(fname) - <span class="number">1</span>:</span><br><span class="line">        index = pos <span class="keyword">if</span> has_dot <span class="keyword">else</span> pos +<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> fname[index:]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    fname = input(<span class="string">'文件名'</span>)</span><br><span class="line">    has_dot = <span class="literal">True</span></span><br><span class="line">    print(get_(fname,has_dot))</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>Python<code>rfind()</code>返回字符串最后一次出现的位置，如果没有匹配项则返回-1。</li>
+<li>Python<code>rfind()</code>返回字符串最后一次出现的位置，如果没有匹配项则返回<code>-1</code>。</li>
 <li>语法<code>str.rfind(str, beg=0 end=len(string))</code></li>
-<li>tr – 查找的字符串。</li>
-<li>beg – 开始查找的位置，默认为0。</li>
-<li>end – 结束查找位置，默认为字符串的长度。</li>
+<li><code>str</code> – 查找的字符串。</li>
+<li><code>beg</code> – 开始查找的位置，默认为0。</li>
+<li><code>end</code> – 结束查找位置，默认为字符串的长度。</li>
 </ul>
 </li>
 <li><p>返回最大值和第二大值</p>
