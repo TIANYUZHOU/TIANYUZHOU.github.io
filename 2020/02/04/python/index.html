@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://tianyuzhou.github.io/Mainpic/8.jpg">
 <meta property="article:published_time" content="2020-02-04T04:03:56.000Z">
-<meta property="article:modified_time" content="2020-02-09T12:05:16.675Z">
+<meta property="article:modified_time" content="2020-02-10T07:19:26.555Z">
 <meta property="article:author" content="周天宇">
 <meta property="article:tag" content="Python学习">
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    33 分钟 读完 (大约 4978 个字)
+                    38 分钟 读完 (大约 5762 个字)
                 </span>
                 
                 
@@ -535,6 +535,37 @@ var _hmt = _hmt || [];
 <li><code>return (a, b)</code>也可以写作 <code>return a, b</code>。</li>
 <li><code>(c, d) = function(x)</code>也可以写作<code>c, d = function(9, 4)</code>。</li>
 </ul>
+</li>
+</ul>
+<h2 id="面向对象编程基础"><a href="#面向对象编程基础" class="headerlink" title="面向对象编程基础"></a>面向对象编程基础</h2><ul>
+<li>面向对象有三大支柱：封装、继承和多态。<ul>
+<li>封装：我自己对封装的理解是”隐藏一切可以隐藏的实现细节，只向外界暴露（提供）简单的编程接口。</li>
+</ul>
+</li>
+</ul>
+<h3 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h3><ul>
+<li><p>类是对象的蓝图和模板，对象是类的实例。</p>
+</li>
+<li><p>定义类：Python中可以使用<code>class</code>关键字定义类。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># __init__是一个特殊方法用于在创建对象时进行初始化操作</span></span><br><span class="line">    <span class="comment"># 通过这个方法我们可以为学生对象绑定name和age两个属性</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">study</span><span class="params">(self, course_name)</span>:</span></span><br><span class="line">        print(<span class="string">'%s正在学习%s.'</span> % (self.name, course_name))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># PEP 8要求标识符的名字用全小写多个单词用下划线连接</span></span><br><span class="line">    <span class="comment"># 但是部分程序员和公司更倾向于使用驼峰命名法(驼峰标识)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">watch_movie</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.age &lt; <span class="number">18</span>:</span><br><span class="line">            print(<span class="string">'%s只能观看《熊出没》。'</span> % self.name)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">'%s正在观看《不能说的秘密》。'</span> % self.name)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建和使用对象</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 创建学生对象并指定姓名和年龄</span></span><br><span class="line">    stu1 = Student(<span class="string">'周天宇'</span>, <span class="number">20</span>)</span><br><span class="line">    <span class="comment"># 给对象发study消息</span></span><br><span class="line">    stu1.study(<span class="string">'Python程序设计'</span>)</span><br><span class="line">    <span class="comment"># 给对象发watch_movie消息</span></span><br><span class="line">    stu1.watch_movie()</span><br><span class="line">    stu2 = Student(<span class="string">'小屁孩'</span>, <span class="number">12</span>)</span><br><span class="line">    stu2.study(<span class="string">'思想品德'</span>)</span><br><span class="line">    stu2.watch_movie()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问可见性问题</p>
+<ul>
+<li><p>在Python中，属性和方法的访问权限只有两种，也就是公开的和私有的，如果希望属性是私有的，在给属性命名时可以用<strong>两个下划线</strong>作为开头。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, foo)</span>:</span></span><br><span class="line">        self.__foo = foo</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__bar</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.__foo)</span><br><span class="line">        print(<span class="string">'__bar'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    test = Test(<span class="string">'hello'</span>)</span><br><span class="line">    <span class="comment"># AttributeError: 'Test' object has no attribute '__bar'</span></span><br><span class="line">    test.__bar()</span><br><span class="line">    <span class="comment"># AttributeError: 'Test' object has no attribute '__foo'</span></span><br><span class="line">    print(test.__foo)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>事实上，Python并没有从语法上严格保证私有属性或方法的私密性，它只是给私有的属性和方法换了一个名字来妨碍对它们的访问。如果你知道更换名字的规则仍然可以访问到它们。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">test._Test__bar()</span><br><span class="line">print(test._Test__foo)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在实际开发中，并不建议将属性设置为私有的，因为这会导致子类无法访问。所以大多数Python程序员会遵循一种命名惯例，就是让属性名以<strong>*单下划线</strong>开头来<strong>表示</strong>属性是受保护的。这种做法并不是语法上的规则，<strong>单下划线</strong>开头的属性和方法外界仍然是可以访问的，所以更多的时候它是一种暗示或隐喻。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, foo)</span>:</span></span><br><span class="line">    self._foo = foo <span class="comment"># 此处改为单下划线</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_bar</span><span class="params">(self)</span>:</span> <span class="comment"># 此处改为单下划线</span></span><br><span class="line">    print(self._foo)</span><br><span class="line">    print(<span class="string">'_bar'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Python类中的那些魔法方法，如<code>__str__</code>、<code>__repr__</code>等，这些方法并不是私有成员，虽然它们以<strong>双下划线开头</strong>，但是他们也是以<strong>双下划线结尾</strong>的，这种命名并不是私有成员的命名。</p>
 </li>
 </ul>
 
@@ -1410,15 +1441,13 @@ var IcarusThemeSettings = {
     },
     article: {
         highlight: {
-            clipboard: true,
+            clipboard: false,
             fold: 'unfolded'
         }
     }
 };
 </script>
 
-
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
 
 
 
