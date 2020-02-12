@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://tianyuzhou.github.io/Mainpic/8.jpg">
 <meta property="article:published_time" content="2020-02-04T04:03:56.000Z">
-<meta property="article:modified_time" content="2020-02-11T07:24:57.382Z">
+<meta property="article:modified_time" content="2020-02-12T06:34:37.801Z">
 <meta property="article:author" content="周天宇">
 <meta property="article:tag" content="Python学习">
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    1 小时 读完 (大约 6785 个字)
+                    1 小时 读完 (大约 7664 个字)
                 </span>
                 
                 
@@ -539,7 +539,7 @@ var _hmt = _hmt || [];
 </ul>
 <h2 id="面向对象编程基础"><a href="#面向对象编程基础" class="headerlink" title="面向对象编程基础"></a>面向对象编程基础</h2><ul>
 <li>面向对象有三大支柱：封装、继承和多态。<ul>
-<li>封装：我自己对封装的理解是”隐藏一切可以隐藏的实现细节，只向外界暴露（提供）简单的编程接口。</li>
+<li><strong>封装</strong>：我自己对封装的理解是”隐藏一切可以隐藏的实现细节，只向外界暴露（提供）简单的编程接口。</li>
 </ul>
 </li>
 </ul>
@@ -596,6 +596,28 @@ var _hmt = _hmt || [];
 <li><p>静态方法：调用时并不需要传递类或者实例。其实，静态方法很像我们在类外定义的函数，只不过静态方法可以通过类或者实例来调用而已。</p>
 </li>
 <li><p>感谢CSDN博主haozlee<a href="https://blog.csdn.net/lihao21/article/details/79762681" title="原文链接">原文链接</a>。</p>
+</li>
+</ul>
+<h3 id="类之间的关系"><a href="#类之间的关系" class="headerlink" title="类之间的关系"></a>类之间的关系</h3><h4 id="类和类之间的关系有三种：is-a、has-a和use-a关系"><a href="#类和类之间的关系有三种：is-a、has-a和use-a关系" class="headerlink" title="类和类之间的关系有三种：is-a、has-a和use-a关系"></a>类和类之间的关系有三种：<code>is-a</code>、<code>has-a</code>和<code>use-a</code>关系</h4><ul>
+<li><strong>is-a</strong>关系也叫继承或泛化，比如学生和人的关系、手机和电子产品的关系都属于继承关系。</li>
+<li><strong>has-a</strong>关系通常称之为关联，比如部门和员工的关系，汽车和引擎的关系都属于关联关系；关联关系如果是整体和部分的关联，那么我们称之为<strong>聚合关系</strong>；如果整体进一步负责了部分的生命周期（整体和部分是不可分割的，同时同在也同时消亡），那么这种就是最强的关联关系，我们称之为<strong>合成关系</strong>。</li>
+<li><strong>use-a</strong>关系通常称之为依赖，比如司机有一个驾驶的行为（方法），其中（的参数）使用到了汽车，那么司机和汽车的关系就是依赖关系。</li>
+</ul>
+<h4 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h4><ul>
+<li><p><strong>继承</strong>：提供继承信息的我们称之为父类，也叫超类或基类；得到继承信息的我们称之为子类，也叫派生类或衍生类。</p>
+<ul>
+<li>子类继承父类提供的属性和方法。</li>
+<li>子类可以定义自己特有的属性和方法。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""人"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age)</span>:</span></span><br><span class="line">        self._name = name</span><br><span class="line">        self._age = age</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._name</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">age</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._age</span><br><span class="line"></span><br><span class="line"><span class="meta">    @age.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">age</span><span class="params">(self, age)</span>:</span></span><br><span class="line">        self._age = age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'%s正在愉快的玩耍.'</span> % self._name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">watch_video</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._age &gt;= <span class="number">18</span>:</span><br><span class="line">            print(<span class="string">'%s正在观看《不能说的秘密》.'</span> % self._name)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">'%s只能观看《熊出没》.'</span> % self._name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(Person)</span>:</span></span><br><span class="line">    <span class="string">"""学生"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age, grade)</span>:</span></span><br><span class="line">        super().__init__(name, age)</span><br><span class="line">        self._grade = grade</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">grade</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._grade</span><br><span class="line"></span><br><span class="line"><span class="meta">    @grade.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">grade</span><span class="params">(self, grade)</span>:</span></span><br><span class="line">        self._grade = grade</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">study</span><span class="params">(self, course)</span>:</span></span><br><span class="line">        print(<span class="string">'%s的%s正在学习%s.'</span> % (self._grade, self._name, course))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span><span class="params">(Person)</span>:</span></span><br><span class="line">    <span class="string">"""老师"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age, title)</span>:</span></span><br><span class="line">        super().__init__(name, age)</span><br><span class="line">        self._title = title</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">title</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._title</span><br><span class="line"></span><br><span class="line"><span class="meta">    @title.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">title</span><span class="params">(self, title)</span>:</span></span><br><span class="line">        self._title = title</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">teach</span><span class="params">(self, course)</span>:</span></span><br><span class="line">        print(<span class="string">'%s%s正在讲%s.'</span> % (self._name, self._title, course))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    stu = Student(<span class="string">'王大锤'</span>, <span class="number">15</span>, <span class="string">'初三'</span>)</span><br><span class="line">    stu.study(<span class="string">'数学'</span>)</span><br><span class="line">    stu.watch_video()</span><br><span class="line">    t = Teacher(<span class="string">'周天宇'</span>, <span class="number">20</span>, <span class="string">'大二'</span>)</span><br><span class="line">    t.teach(<span class="string">'Python程序设计'</span>)</span><br><span class="line">    t.watch_video()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>多态</strong>：通过方法重写我们可以让父类的同一个行为在子类中拥有不同的实现版本，当我们调用这个经过子类重写的方法时，不同的子类对象会表现出不同的行为。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABCMeta, abstractmethod</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pet</span><span class="params">(object, metaclass=ABCMeta)</span>:</span></span><br><span class="line">    <span class="string">"""宠物"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, nickname)</span>:</span></span><br><span class="line">        self._nickname = nickname</span><br><span class="line"></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">make_voice</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""发出声音"""</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(Pet)</span>:</span></span><br><span class="line">    <span class="string">"""狗"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">make_voice</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'%s: 汪汪汪...'</span> % self._nickname)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span><span class="params">(Pet)</span>:</span></span><br><span class="line">    <span class="string">"""猫"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">make_voice</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'%s: 喵...喵...'</span> % self._nickname)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    pets = [Dog(<span class="string">'旺财'</span>), Cat(<span class="string">'凯蒂'</span>), Dog(<span class="string">'大黄'</span>)]</span><br><span class="line">    <span class="keyword">for</span> pet <span class="keyword">in</span> pets:</span><br><span class="line">        pet.make_voice()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>abc.ABCMeta</strong>：简单的说ABCMeta就是让你的类变成一个纯虚类，子类必须实现某个方法，这个方法在<strong>父类</strong>中用<code>@abc.abstractmethod</code>修饰。</li>
+<li>你可以在父类中实现这两个虚方法，也可以不实现。但在子类中就必须实现被“虚化”的函数，否则会报错。例如上述的<code>make_voice()</code>就在子类（<code>Dog</code>、<code>Cat</code>）中被实现了两种版本，这个方法就表现出了<strong>多态</strong>行为（同样的方法做了不同的事情）。</li>
+</ul>
 </li>
 </ul>
 
@@ -755,7 +777,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            9
+                            10
                         </p>
                     </a>
                 </div>
@@ -779,7 +801,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            9
+                            10
                         </p>
                     </a>
                 </div>
@@ -930,7 +952,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">歌单</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/%E8%A7%86%E9%A2%91/">
@@ -951,7 +973,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/HTML5-CSS-JS%E5%88%9D%E6%AD%A5/" style="font-size: 10px;">HTML5+CSS+JS初步</a> <a href="/tags/Python%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">Python学习</a> <a href="/tags/%E5%9B%BE%E5%BA%93/" style="font-size: 10px;">图库</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E5%91%A8%E6%9D%B0%E4%BC%A6/" style="font-size: 10px;">我的歌单-周杰伦</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E6%9E%97%E4%BF%8A%E6%9D%B0/" style="font-size: 10px;">我的歌单-林俊杰</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" style="font-size: 10px;">第一篇文章</a> <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E6%8F%92%E4%BB%B6%E5%B0%8F%E5%9D%91/" style="font-size: 10px;">网易云插件小坑</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%BD%9C%E5%93%81/" style="font-size: 10px;">视频作品</a>
+        <a href="/tags/HTML5-CSS-JS%E5%88%9D%E6%AD%A5/" style="font-size: 10px;">HTML5+CSS+JS初步</a> <a href="/tags/Python%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">Python学习</a> <a href="/tags/%E5%9B%BE%E5%BA%93/" style="font-size: 10px;">图库</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E5%91%A8%E6%9D%B0%E4%BC%A6/" style="font-size: 10px;">我的歌单-周杰伦</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E6%9E%97%E4%BF%8A%E6%9D%B0/" style="font-size: 10px;">我的歌单-林俊杰</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/" style="font-size: 10px;">我的歌单-陈奕迅</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" style="font-size: 10px;">第一篇文章</a> <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E6%8F%92%E4%BB%B6%E5%B0%8F%E5%9D%91/" style="font-size: 10px;">网易云插件小坑</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%BD%9C%E5%93%81/" style="font-size: 10px;">视频作品</a>
     </div>
 </div>
     
@@ -963,6 +985,25 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/12/%E6%AD%8C%E5%8D%953/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/Mainpic/10.jpg" alt="歌单-陈奕迅">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-12T06:55:54.000Z">2020-02-12</time></div>
+                    <a href="/2020/02/12/%E6%AD%8C%E5%8D%953/" class="title has-link-black-ter is-size-6 has-text-weight-normal">歌单-陈奕迅</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E6%AD%8C%E5%8D%95/">歌单</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1040,25 +1081,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/30/HTML5-CSS-JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/Mainpic/5.jpg" alt="HTML5+CSS+JS学习笔记">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-30T04:58:41.000Z">2020-01-30</time></div>
-                    <a href="/2020/01/30/HTML5-CSS-JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTML5+CSS+JS学习笔记</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1076,7 +1098,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">二月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -1136,6 +1158,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E6%9E%97%E4%BF%8A%E6%9D%B0/">
                         <span class="tag">我的歌单-林俊杰</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/">
+                        <span class="tag">我的歌单-陈奕迅</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1192,6 +1221,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2020/02/12/%E6%AD%8C%E5%8D%953/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/Mainpic/10.jpg" alt="歌单-陈奕迅">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-12T06:55:54.000Z">2020-02-12</time></div>
+                    <a href="/2020/02/12/%E6%AD%8C%E5%8D%953/" class="title has-link-black-ter is-size-6 has-text-weight-normal">歌单-陈奕迅</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E6%AD%8C%E5%8D%95/">歌单</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/02/11/%E7%9B%B8%E5%86%8C/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/Mainpic/9.jpg" alt="我的图库">
@@ -1266,25 +1314,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/30/HTML5-CSS-JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/Mainpic/5.jpg" alt="HTML5+CSS+JS学习笔记">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-30T04:58:41.000Z">2020-01-30</time></div>
-                    <a href="/2020/01/30/HTML5-CSS-JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTML5+CSS+JS学习笔记</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1302,7 +1331,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">二月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -1362,6 +1391,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E6%9E%97%E4%BF%8A%E6%9D%B0/">
                         <span class="tag">我的歌单-林俊杰</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/">
+                        <span class="tag">我的歌单-陈奕迅</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
