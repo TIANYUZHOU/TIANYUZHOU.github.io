@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://tianyuzhou.github.io/Mainpic/8.jpg">
 <meta property="article:published_time" content="2020-02-04T04:03:56.000Z">
-<meta property="article:modified_time" content="2020-02-14T13:24:34.814Z">
+<meta property="article:modified_time" content="2020-02-16T07:40:17.784Z">
 <meta property="article:author" content="周天宇">
 <meta property="article:tag" content="Python学习">
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    1 小时 读完 (大约 9953 个字)
+                    1 小时 读完 (大约 10755 个字)
                 </span>
                 
                 
@@ -821,6 +821,73 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
+<h2 id="Python对正则表达式的支持"><a href="#Python对正则表达式的支持" class="headerlink" title="Python对正则表达式的支持"></a>Python对正则表达式的支持</h2><ul>
+<li>正则表达式<a href="https://deerchao.cn/tutorials/regex/regex.htm" title="基础符号表">基础符号表</a>。</li>
+<li>Python提供的re模块中的核心函数。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">compile(pattern, flags=0)</td>
+<td align="center">编译正则表达式返回正则表达式对象</td>
+</tr>
+<tr>
+<td align="left">match(pattern, string, flags=0)</td>
+<td align="center">用正则表达式匹配字符串 成功返回匹配对象 否则返回None</td>
+</tr>
+<tr>
+<td align="left">search(pattern, string, flags=0)</td>
+<td align="center">搜索字符串中第一次出现正则表达式的模式 成功返回匹配对象 否则返回None</td>
+</tr>
+<tr>
+<td align="left">split(pattern, string, maxsplit=0, flags=0)</td>
+<td align="center">用正则表达式指定的模式分隔符拆分字符串 返回列表</td>
+</tr>
+<tr>
+<td align="left">sub(pattern, repl, string, count=0, flags=0)</td>
+<td align="center">用指定的字符串替换原字符串中与正则表达式匹配的模式 可以用count指定替换的次数</td>
+</tr>
+<tr>
+<td align="left">fullmatch(pattern, string, flags=0)</td>
+<td align="center">match函数的完全匹配（从字符串开头到结尾）版本</td>
+</tr>
+<tr>
+<td align="left">findall(pattern, string, flags=0)</td>
+<td align="center">查找字符串所有与正则表达式匹配的模式 返回字符串的列表</td>
+</tr>
+<tr>
+<td align="left">finditer(pattern, string, flags=0)</td>
+<td align="center">查找字符串所有与正则表达式匹配的模式 返回一个迭代器</td>
+</tr>
+<tr>
+<td align="left">purge()</td>
+<td align="center">清除隐式编译的正则表达式的缓存</td>
+</tr>
+<tr>
+<td align="left">re.I / re.IGNORECASE</td>
+<td align="center">忽略大小写匹配标记</td>
+</tr>
+<tr>
+<td align="left">re.M / re.MULTILINE</td>
+<td align="center">多行匹配标记</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>实际开发中可以用正则表达式对象的方法替代对这些函数的使用，如果一个正则表达式需要重复的使用，先通过<code>compile()</code>函数编译正则表达式并创建出正则表达式对象更好。</p>
+</li>
+<li><p>例子：验证输入用户名和QQ号是否有效并给出对应的提示信息。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">验证输入用户名和QQ号是否有效并给出对应的提示信息</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">要求：用户名必须由字母、数字或下划线构成且长度在6~20个字符之间，QQ号是5~12的数字且首位不能为0</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    username = input(<span class="string">'请输入用户名: '</span>)</span><br><span class="line">    qq = input(<span class="string">'请输入QQ号: '</span>)</span><br><span class="line">    <span class="comment"># match函数的第一个参数是正则表达式字符串或正则表达式对象</span></span><br><span class="line">    <span class="comment"># 第二个参数是要跟正则表达式做匹配的字符串对象</span></span><br><span class="line">    m1 = re.match(<span class="string">r'^[0-9a-zA-Z_]&#123;6,20&#125;$'</span>, username) <span class="comment"># r'原始字符串</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> m1:</span><br><span class="line">        print(<span class="string">'请输入有效的用户名.'</span>)</span><br><span class="line">    m2 = re.match(<span class="string">r'^[1-9]\d&#123;4,11&#125;$'</span>, qq)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> m2:</span><br><span class="line">        print(<span class="string">'请输入有效的QQ号.'</span>)</span><br><span class="line">    <span class="keyword">if</span> m1 <span class="keyword">and</span> m2:</span><br><span class="line">        print(<span class="string">'你输入的信息是有效的!'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/jackfrued/Python-100-Days/blob/master/Day01-15/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md" title="例子">更多例子</a></p>
+</li>
+<li><p>上面在书写正则表达式时使用了“原始字符串”的写法（在字符串前面加上了r），“原始字符串”就是字符串中的每个字符都是它原始的意义（声明字符串中没有转义字符）。因为正则表达式中有很多元字符和需要进行转义的地方，如果不使用原始字符串就需要将反斜杠写作<code>\\</code>，例如表示数字的\d得书写成<code>\\d</code>。</p>
+</li>
+</ul>
 
         </div>
         
@@ -978,7 +1045,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            10
+                            11
                         </p>
                     </a>
                 </div>
@@ -1002,7 +1069,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            10
+                            11
                         </p>
                     </a>
                 </div>
@@ -1137,7 +1204,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">学习笔记</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/%E6%91%84%E4%B8%8E%E5%BD%B1/">
@@ -1174,7 +1241,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/HTML5-CSS-JS%E5%88%9D%E6%AD%A5/" style="font-size: 10px;">HTML5+CSS+JS初步</a> <a href="/tags/Python%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">Python学习</a> <a href="/tags/%E5%9B%BE%E5%BA%93/" style="font-size: 10px;">图库</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E5%91%A8%E6%9D%B0%E4%BC%A6/" style="font-size: 10px;">我的歌单-周杰伦</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E6%9E%97%E4%BF%8A%E6%9D%B0/" style="font-size: 10px;">我的歌单-林俊杰</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/" style="font-size: 10px;">我的歌单-陈奕迅</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" style="font-size: 10px;">第一篇文章</a> <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E6%8F%92%E4%BB%B6%E5%B0%8F%E5%9D%91/" style="font-size: 10px;">网易云插件小坑</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%BD%9C%E5%93%81/" style="font-size: 10px;">视频作品</a>
+        <a href="/tags/HTML5-CSS-JS%E5%88%9D%E6%AD%A5/" style="font-size: 10px;">HTML5+CSS+JS初步</a> <a href="/tags/Python%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">Python学习</a> <a href="/tags/%E5%9B%BE%E5%BA%93/" style="font-size: 10px;">图库</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E5%91%A8%E6%9D%B0%E4%BC%A6/" style="font-size: 10px;">我的歌单-周杰伦</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E6%9E%97%E4%BF%8A%E6%9D%B0/" style="font-size: 10px;">我的歌单-林俊杰</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/" style="font-size: 10px;">我的歌单-陈奕迅</a> <a href="/tags/%E6%8B%93%E5%B1%95/" style="font-size: 10px;">拓展</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" style="font-size: 10px;">第一篇文章</a> <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E6%8F%92%E4%BB%B6%E5%B0%8F%E5%9D%91/" style="font-size: 10px;">网易云插件小坑</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%BD%9C%E5%93%81/" style="font-size: 10px;">视频作品</a>
     </div>
 </div>
     
@@ -1186,6 +1253,25 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/16/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/Mainpic/11.jpg" alt="正则表达式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-16T06:20:59.000Z">2020-02-16</time></div>
+                    <a href="/2020/02/16/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="title has-link-black-ter is-size-6 has-text-weight-normal">正则表达式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1263,25 +1349,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/02/01/%E8%A7%86%E9%A2%91/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/Mainpic/6.jpg" alt="枣子·记者团的宣传片">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-31T16:12:37.000Z">2020-02-01</time></div>
-                    <a href="/2020/02/01/%E8%A7%86%E9%A2%91/" class="title has-link-black-ter is-size-6 has-text-weight-normal">枣子·记者团的宣传片</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/%E8%A7%86%E9%A2%91/">视频</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1299,7 +1366,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">二月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1366,6 +1433,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/">
                         <span class="tag">我的歌单-陈奕迅</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%8B%93%E5%B1%95/">
+                        <span class="tag">拓展</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1422,6 +1496,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2020/02/16/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/Mainpic/11.jpg" alt="正则表达式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-16T06:20:59.000Z">2020-02-16</time></div>
+                    <a href="/2020/02/16/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="title has-link-black-ter is-size-6 has-text-weight-normal">正则表达式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/02/12/%E6%AD%8C%E5%8D%953/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/Mainpic/10.jpg" alt="歌单-陈奕迅">
@@ -1496,25 +1589,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/02/01/%E8%A7%86%E9%A2%91/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/Mainpic/6.jpg" alt="枣子·记者团的宣传片">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-31T16:12:37.000Z">2020-02-01</time></div>
-                    <a href="/2020/02/01/%E8%A7%86%E9%A2%91/" class="title has-link-black-ter is-size-6 has-text-weight-normal">枣子·记者团的宣传片</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/%E8%A7%86%E9%A2%91/">视频</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1532,7 +1606,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">二月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1599,6 +1673,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/">
                         <span class="tag">我的歌单-陈奕迅</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%8B%93%E5%B1%95/">
+                        <span class="tag">拓展</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
