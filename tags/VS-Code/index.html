@@ -7,13 +7,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: 我的歌单-陈奕迅 - 星辰大海</title>
+<title>标签: VS Code - 星辰大海</title>
 
 
     <meta name="description" content="在校大学生，摄影爱好者，程序员养成中">
 <meta property="og:type" content="website">
 <meta property="og:title" content="星辰大海">
-<meta property="og:url" content="http://tianyuzhou.github.io/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/index.html">
+<meta property="og:url" content="http://tianyuzhou.github.io/tags/VS-Code/index.html">
 <meta property="og:site_name" content="星辰大海">
 <meta property="og:description" content="在校大学生，摄影爱好者，程序员养成中">
 <meta property="og:locale" content="zh_CN">
@@ -140,7 +140,7 @@ var _hmt = _hmt || [];
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">我的歌单-陈奕迅</a></li>
+            <li class="is-active"><a href="#" aria-current="page">VS Code</a></li>
         </ul>
         </nav>
     </div>
@@ -150,8 +150,8 @@ var _hmt = _hmt || [];
 <div class="card">
     
     <div class="card-image">
-        <a href="/2020/02/12/%E6%AD%8C%E5%8D%953/" class="image is-7by1">
-            <img class="thumbnail" src="/Mainpic/10.jpg" alt="歌单-陈奕迅">
+        <a href="/2020/03/13/VS_Code%E5%B0%8F%E5%9D%91/" class="image is-7by1">
+            <img class="thumbnail" src="/Mainpic/14.jpg" alt="VS Code小坑（HTML代码提示“修复”）">
         </a>
     </div>
     
@@ -159,17 +159,17 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-12T06:55:54.000Z">2020-02-12</time>
+                <time class="level-item has-text-grey" datetime="2020-03-13T14:32:37.000Z">2020-03-13</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%E6%AD%8C%E5%8D%95/">歌单</a>
+                <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 114 个字)
+                    2 分钟 读完 (大约 296 个字)
                 </span>
                 
                 
@@ -178,24 +178,34 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/02/12/%E6%AD%8C%E5%8D%953/">歌单-陈奕迅</a>
+                <a class="has-link-black-ter" href="/2020/03/13/VS_Code%E5%B0%8F%E5%9D%91/">VS Code小坑（HTML代码提示“修复”）</a>
             
         </h1>
         <div class="content">
-            <ul>
-<li>陈奕迅（Eason Chan），1974年7月27日出生于中国香港，祖籍广东省东莞市，中国香港流行乐男歌手、演员，毕业于英国金斯顿大学。1995年因获得第14届新秀歌唱大赛冠军而正式出道。1996年发行个人首张专辑《陈奕迅》。</li>
+            <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>之前写HTML是在IDEA环境写的，虽然貌似比VS Code方便，但是每次启动都要花一些时间，而且进程过于占内存，所以打算配置VS Code的环境写HTML文档。</p>
+<h3 id="踩坑之旅"><a href="#踩坑之旅" class="headerlink" title="踩坑之旅"></a>踩坑之旅</h3><p>由于之前我主要用来写Python代码，并且安装了Django框架（“罪魁祸首”），神奇的事情发生了。我发现我的HTML文档居然没有代码提示？</p>
+<p>像这样：</p>
+<p><img src="http://q751g6brm.bkt.clouddn.com/0.png" alt="HTML"></p>
+<h3 id="出现原因"><a href="#出现原因" class="headerlink" title="出现原因"></a>出现原因</h3><p>前面已经说了Django是罪魁祸首，原因就是Django框架偷偷地改了我的HTML语言模式。</p>
+<p><img src="http://q751g6brm.bkt.clouddn.com/2.png" alt="HTML"></p>
+<p>第三排<strong>Django HTML语言</strong>，我惊了。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>既然问题原因已经找到解决起来接很简单了。</p>
+<ul>
+<li><strong>Ctrl+Shift+P</strong>调出VS Code命令窗口，选择更改语言模式。</li>
 </ul>
-<p><font color=gray size=2>点击“陈奕迅图片”或“阅读更多”获取歌单。</font></p>
+<p><img src="http://q751g6brm.bkt.clouddn.com/1.png" alt="HTML"></p>
+<ul>
+<li>选择HTML语言模式。</li>
+</ul>
+<p><img src="http://q751g6brm.bkt.clouddn.com/3.png" alt="HTML"></p>
+<ul>
+<li>HTML文档代码提示恢复正常。</li>
+</ul>
+<p><img src="http://q751g6brm.bkt.clouddn.com/4.png" alt="HTML"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>VS Code真香</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/02/12/%E6%AD%8C%E5%8D%953/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
