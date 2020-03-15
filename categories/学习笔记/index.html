@@ -151,6 +151,129 @@ var _hmt = _hmt || [];
 <div class="card">
     
     <div class="card-image">
+        <a href="/2020/03/15/Xpath/" class="image is-7by1">
+            <img class="thumbnail" src="/Mainpic/15.jpg" alt="XPath语法的使用">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-15T03:53:03.000Z">2020-03-15</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 648 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/03/15/Xpath/">XPath语法的使用</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="XPath简介"><a href="#XPath简介" class="headerlink" title="XPath简介"></a>XPath简介</h3><ul>
+<li>XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。这些路径表达式和我们在常规的电脑文件系统中看到的表达式非常相似。</li>
+<li>XPath 含有超过 100 个内建的函数。这些函数用于字符串值、数值、日期和时间比较、节点和 QName 处理、序列处理、逻辑值等等。</li>
+</ul>
+<h3 id="XPath术语"><a href="#XPath术语" class="headerlink" title="XPath术语"></a>XPath术语</h3><ul>
+<li>在 XPath 中，有七种类型的节点：元素、属性、文本、命名空间、处理指令、注释以及文档（根）节点。XML 文档是被作为节点树来对待的。树的根被称为文档节点或者根节点。</li>
+</ul>
+<h3 id="XPath语法"><a href="#XPath语法" class="headerlink" title="XPath语法"></a>XPath语法</h3><h4 id="选取节点"><a href="#选取节点" class="headerlink" title="选取节点"></a><em>选取节点</em></h4><ul>
+<li>XPath 使用路径表达式在 XML 文档中<strong>选取节点</strong>。节点是通过沿着路径或者 step 来选取的。 下面列出了最有用的路径表达式：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">nodename</td>
+<td align="center">选取此节点的所有子节点。</td>
+</tr>
+<tr>
+<td align="center">/</td>
+<td align="center">从根节点选取。</td>
+</tr>
+<tr>
+<td align="center">//</td>
+<td align="center">从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">选取当前节点。</td>
+</tr>
+<tr>
+<td align="center">..</td>
+<td align="center">选取当前节点的父节点。</td>
+</tr>
+<tr>
+<td align="center">@</td>
+<td align="center">选取属性。</td>
+</tr>
+</tbody></table>
+<h4 id="选取未知节点"><a href="#选取未知节点" class="headerlink" title="选取未知节点"></a><em>选取未知节点</em></h4><ul>
+<li>XPath 通配符可用来选取未知的 XML <strong>元素（节点）</strong>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">通配符</th>
+<th align="center">述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">*</td>
+<td align="center">匹配任何元素节点。</td>
+</tr>
+<tr>
+<td align="center">@*</td>
+<td align="center">匹配任何属性节点。</td>
+</tr>
+<tr>
+<td align="center">node()</td>
+<td align="center">匹配任何类型的节点。</td>
+</tr>
+</tbody></table>
+<h3 id="我的实例"><a href="#我的实例" class="headerlink" title="我的实例"></a>我的实例</h3><ul>
+<li><p>空气质量排名爬虫</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'全国空气状况排名表(污染)'</span>+<span class="string">'\n统计时间：'</span>+time)</span><br><span class="line">    print()</span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> range(len(rank)):</span><br><span class="line">        print(<span class="string">'第'</span>+rank[num]+<span class="string">'名  '</span>+provinces[num]+<span class="string">'———'</span>+citys[num]+<span class="string">'  空气质量：'</span>+qualitys[num]+<span class="string">'  AQI：'</span>+AQI[num]+<span class="string">'  PM2.5：'</span>+PM2_5[num])</span><br><span class="line">    print(<span class="string">'\n全国空气状况排名表(污染)'</span>+<span class="string">'\n统计时间：'</span>+time)</span><br><span class="line"></span><br><span class="line">headers = &#123;<span class="string">"User-Agent"</span>:<span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"</span>,&#125;</span><br><span class="line">url = <span class="string">'http://www.pm25.com/rank.html'</span></span><br><span class="line">response = requests.get(url, headers=headers)</span><br><span class="line">response.encoding = <span class="string">'utf-8'</span></span><br><span class="line">html = response.content.decode(<span class="string">'utf-8'</span>)</span><br><span class="line">root = etree.HTML(html)</span><br><span class="line">time = re.findall(<span class="string">r'&lt;span&gt;统计时间：(.*?)&lt;/span&gt;'</span>, html)[<span class="number">0</span>]</span><br><span class="line">rank = root.xpath(<span class="string">'//ul[@class="pj_area_data_details rrank_box"]//span[@class="pjadt_ranknum"]/text()'</span>)</span><br><span class="line">provinces = root.xpath(<span class="string">'//ul[@class="pj_area_data_details rrank_box"]//span[@class="pjadt_sheng"]/text()'</span>)</span><br><span class="line">citys = root.xpath(<span class="string">'//ul[@class="pj_area_data_details rrank_box"]//a/text()'</span>)</span><br><span class="line">qualitys = root.xpath(<span class="string">'//ul[@class="pj_area_data_details rrank_box"]//span[@class="pjadt_quality"]//em/text()'</span>)</span><br><span class="line">AQI = root.xpath(<span class="string">'//ul[@class="pj_area_data_details rrank_box"]//span[@class="pjadt_aqi"]/text()'</span>)</span><br><span class="line">PM2_5 = root.xpath(<span class="string">'//ul[@class="pj_area_data_details rrank_box"]//span[@class="pjadt_pm25"]/text()'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    show()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更多详细XPath的使用可以参考<a href="https://www.runoob.com/xpath/xpath-tutorial.html">XPath教程</a>。</p>
+</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
         <a href="/2020/02/20/%E7%88%AC%E8%99%AB%E5%88%9D%E6%AD%A5/" class="image is-7by1">
             <img class="thumbnail" src="/Mainpic/12.jpg" alt="爬虫初步">
         </a>
@@ -443,7 +566,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            14
+                            15
                         </p>
                     </a>
                 </div>
@@ -467,7 +590,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            14
+                            15
                         </p>
                     </a>
                 </div>
@@ -602,7 +725,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">学习笔记</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/%E6%91%84%E4%B8%8E%E5%BD%B1/">
@@ -639,7 +762,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/HTML5-CSS-JS%E5%88%9D%E6%AD%A5/" style="font-size: 10px;">HTML5+CSS+JS初步</a> <a href="/tags/Pythony%E5%BA%94%E7%94%A8/" style="font-size: 10px;">Pythony应用</a> <a href="/tags/Python%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">Python学习</a> <a href="/tags/VS-Code%E5%B0%8F%E5%9D%91/" style="font-size: 10px;">VS Code小坑</a> <a href="/tags/%E5%9B%BE%E5%BA%93/" style="font-size: 10px;">图库</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E5%91%A8%E6%9D%B0%E4%BC%A6/" style="font-size: 10px;">我的歌单-周杰伦</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E6%9E%97%E4%BF%8A%E6%9D%B0/" style="font-size: 10px;">我的歌单-林俊杰</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E8%B5%B5%E6%B5%B7%E6%B4%8B/" style="font-size: 10px;">我的歌单-赵海洋</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/" style="font-size: 10px;">我的歌单-陈奕迅</a> <a href="/tags/%E6%8B%93%E5%B1%95/" style="font-size: 10px;">拓展</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" style="font-size: 10px;">第一篇文章</a> <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E6%8F%92%E4%BB%B6%E5%B0%8F%E5%9D%91/" style="font-size: 10px;">网易云插件小坑</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%BD%9C%E5%93%81/" style="font-size: 10px;">视频作品</a>
+        <a href="/tags/HTML5-CSS-JS%E5%88%9D%E6%AD%A5/" style="font-size: 10px;">HTML5+CSS+JS初步</a> <a href="/tags/Python%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">Python学习</a> <a href="/tags/Python%E5%BA%94%E7%94%A8-%E7%88%AC%E8%99%AB/" style="font-size: 10px;">Python应用(爬虫)</a> <a href="/tags/Python%E5%BA%94%E7%94%A8-%E7%88%AC%E8%99%AB-XPath/" style="font-size: 10px;">Python应用(爬虫-XPath)</a> <a href="/tags/VS-Code%E5%B0%8F%E5%9D%91/" style="font-size: 10px;">VS Code小坑</a> <a href="/tags/%E5%9B%BE%E5%BA%93/" style="font-size: 10px;">图库</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E5%91%A8%E6%9D%B0%E4%BC%A6/" style="font-size: 10px;">我的歌单-周杰伦</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E6%9E%97%E4%BF%8A%E6%9D%B0/" style="font-size: 10px;">我的歌单-林俊杰</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E8%B5%B5%E6%B5%B7%E6%B4%8B/" style="font-size: 10px;">我的歌单-赵海洋</a> <a href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/" style="font-size: 10px;">我的歌单-陈奕迅</a> <a href="/tags/%E6%8B%93%E5%B1%95/" style="font-size: 10px;">拓展</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" style="font-size: 10px;">第一篇文章</a> <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E6%8F%92%E4%BB%B6%E5%B0%8F%E5%9D%91/" style="font-size: 10px;">网易云插件小坑</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%BD%9C%E5%93%81/" style="font-size: 10px;">视频作品</a>
     </div>
 </div>
     
@@ -651,6 +774,25 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/15/Xpath/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/Mainpic/15.jpg" alt="XPath语法的使用">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-15T03:53:03.000Z">2020-03-15</time></div>
+                    <a href="/2020/03/15/Xpath/" class="title has-link-black-ter is-size-6 has-text-weight-normal">XPath语法的使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -728,25 +870,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/02/12/%E6%AD%8C%E5%8D%953/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/Mainpic/10.jpg" alt="歌单-陈奕迅">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-12T06:55:54.000Z">2020-02-12</time></div>
-                    <a href="/2020/02/12/%E6%AD%8C%E5%8D%953/" class="title has-link-black-ter is-size-6 has-text-weight-normal">歌单-陈奕迅</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/%E6%AD%8C%E5%8D%95/">歌单</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -764,7 +887,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -812,15 +935,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Pythony%E5%BA%94%E7%94%A8/">
-                        <span class="tag">Pythony应用</span>
+                    <a class="tags has-addons" href="/tags/Python%E5%AD%A6%E4%B9%A0/">
+                        <span class="tag">Python学习</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Python%E5%AD%A6%E4%B9%A0/">
-                        <span class="tag">Python学习</span>
+                    <a class="tags has-addons" href="/tags/Python%E5%BA%94%E7%94%A8-%E7%88%AC%E8%99%AB/">
+                        <span class="tag">Python应用(爬虫)</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Python%E5%BA%94%E7%94%A8-%E7%88%AC%E8%99%AB-XPath/">
+                        <span class="tag">Python应用(爬虫-XPath)</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -926,6 +1056,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2020/03/15/Xpath/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/Mainpic/15.jpg" alt="XPath语法的使用">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-15T03:53:03.000Z">2020-03-15</time></div>
+                    <a href="/2020/03/15/Xpath/" class="title has-link-black-ter is-size-6 has-text-weight-normal">XPath语法的使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/13/VS_Code%E5%B0%8F%E5%9D%91/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/Mainpic/14.png" alt="VS Code小坑（HTML代码提示“修复”）">
@@ -1000,25 +1149,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/02/12/%E6%AD%8C%E5%8D%953/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/Mainpic/10.jpg" alt="歌单-陈奕迅">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-12T06:55:54.000Z">2020-02-12</time></div>
-                    <a href="/2020/02/12/%E6%AD%8C%E5%8D%953/" class="title has-link-black-ter is-size-6 has-text-weight-normal">歌单-陈奕迅</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/%E6%AD%8C%E5%8D%95/">歌单</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1036,7 +1166,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1084,15 +1214,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Pythony%E5%BA%94%E7%94%A8/">
-                        <span class="tag">Pythony应用</span>
+                    <a class="tags has-addons" href="/tags/Python%E5%AD%A6%E4%B9%A0/">
+                        <span class="tag">Python学习</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Python%E5%AD%A6%E4%B9%A0/">
-                        <span class="tag">Python学习</span>
+                    <a class="tags has-addons" href="/tags/Python%E5%BA%94%E7%94%A8-%E7%88%AC%E8%99%AB/">
+                        <span class="tag">Python应用(爬虫)</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Python%E5%BA%94%E7%94%A8-%E7%88%AC%E8%99%AB-XPath/">
+                        <span class="tag">Python应用(爬虫-XPath)</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
