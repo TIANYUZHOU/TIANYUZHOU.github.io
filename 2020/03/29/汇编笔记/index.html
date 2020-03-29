@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://tianyuzhou.github.io/Mainpic/17.jpg">
 <meta property="article:published_time" content="2020-03-29T07:03:37.000Z">
-<meta property="article:modified_time" content="2020-03-29T09:51:11.828Z">
+<meta property="article:modified_time" content="2020-03-29T10:20:24.136Z">
 <meta property="article:author" content="周天宇">
 <meta property="article:tag" content="80×86汇编语言">
 <meta name="twitter:card" content="summary">
@@ -317,7 +317,9 @@ var _hmt = _hmt || [];
 </ul>
 <figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">        (<span class="built_in">BP</span>)           (<span class="built_in">SI</span>)</span><br><span class="line">即：EA=          +              EA即有效地址</span><br><span class="line">        (<span class="built_in">BX</span>)           (<span class="built_in">DI</span>)</span><br><span class="line"></span><br><span class="line">例如：</span><br><span class="line"><span class="keyword">MOV</span>, [<span class="built_in">BX</span>][<span class="built_in">DI</span>] 或 <span class="keyword">MOV</span>, [<span class="built_in">BX</span>+<span class="built_in">DI</span>]</span><br><span class="line"></span><br><span class="line">物理地址=<span class="number">16</span>×(<span class="built_in">DS</span>)+(<span class="built_in">BX</span>)+(<span class="built_in">DI</span>)</span><br><span class="line">或</span><br><span class="line">物理地址=<span class="number">16</span>×(<span class="built_in">SS</span>)+(<span class="built_in">BP</span>)+(<span class="built_in">DI</span>)</span><br></pre></td></tr></table></figure>
 
-<p>相对基址变址寻址</p>
+<ul>
+<li>相对基址变址寻址</li>
+</ul>
 <figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">        (<span class="built_in">BP</span>)           (<span class="built_in">SI</span>)         <span class="number">8</span>位位移量</span><br><span class="line">即：EA=          +              +</span><br><span class="line">        (<span class="built_in">BX</span>)           (<span class="built_in">DI</span>)         <span class="number">16</span>位位移量</span><br><span class="line"></span><br><span class="line">例如：</span><br><span class="line"><span class="keyword">MOV</span>, MASK[<span class="built_in">BX</span>][<span class="built_in">DI</span>] 或 <span class="keyword">MOV</span>, MASK[<span class="built_in">BX</span>+<span class="built_in">DI</span>] 或  <span class="keyword">MOV</span>, [<span class="built_in">BX</span>+<span class="built_in">DI</span>+MASK]</span><br><span class="line"></span><br><span class="line">物理地址=<span class="number">16</span>×(<span class="built_in">DS</span>)+(<span class="built_in">BX</span>)+(<span class="built_in">DI</span>)+位移量</span><br><span class="line">或</span><br><span class="line">物理地址=<span class="number">16</span>×(<span class="built_in">SS</span>)+(<span class="built_in">BP</span>)+(<span class="built_in">DI</span>)+位移量</span><br></pre></td></tr></table></figure>
 
 <p><img src="http://q751g6brm.bkt.clouddn.com/%E5%AF%BB%E5%9D%802.png" alt="寻址"></p>
