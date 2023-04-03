@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>应用层 - 程序员的文章</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="程序员的文章"><meta name="msapplication-TileImage" content="/img/1.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="程序员的文章"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="应用层协议的特点 每个应用层协议都是为了解决某一类应用问题，而问题的解决又往往是通过位于不同主机中的多个应用进程之间的通信和协同工作来完成的。应用层的具体内容就是规定应用进程在通信时所遵循的协议。 应用层的许多协议都是基于客户服务器方式。"><meta property="og:type" content="blog"><meta property="og:title" content="应用层"><meta property="og:url" content="http://tianyuzhou.github.io/2020/12/20/%E5%BA%94%E7%94%A8%E5%B1%82/"><meta property="og:site_name" content="程序员的文章"><meta property="og:description" content="应用层协议的特点 每个应用层协议都是为了解决某一类应用问题，而问题的解决又往往是通过位于不同主机中的多个应用进程之间的通信和协同工作来完成的。应用层的具体内容就是规定应用进程在通信时所遵循的协议。 应用层的许多协议都是基于客户服务器方式。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://tianyuzhou.github.io/Mainpic/22.jpg"><meta property="article:published_time" content="2020-12-20T07:36:19.000Z"><meta property="article:modified_time" content="2021-02-17T13:34:48.000Z"><meta property="article:author" content="TIANYUZHOU"><meta property="article:tag" content="计算机网络"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/Mainpic/22.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://tianyuzhou.github.io/2020/12/20/%E5%BA%94%E7%94%A8%E5%B1%82/"},"headline":"程序员的文章","image":["http://tianyuzhou.github.io/Mainpic/22.jpg"],"datePublished":"2020-12-20T07:36:19.000Z","dateModified":"2021-02-17T13:34:48.000Z","author":{"@type":"Person","name":"TIANYUZHOU"},"description":"应用层协议的特点 每个应用层协议都是为了解决某一类应用问题，而问题的解决又往往是通过位于不同主机中的多个应用进程之间的通信和协同工作来完成的。应用层的具体内容就是规定应用进程在通信时所遵循的协议。 应用层的许多协议都是基于客户服务器方式。"}</script><link rel="canonical" href="http://tianyuzhou.github.io/2020/12/20/%E5%BA%94%E7%94%A8%E5%B1%82/"><link rel="alternate" href="/atom.xml" title="程序员的文章" type="application/atom+xml"><link rel="icon" href="/img/1.png"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?66aa3594928a536d6d93ed30544fffe8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.2"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/2.png" alt="程序员的文章" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/TIANYUZHOU"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/Mainpic/22.jpg" alt="应用层"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-12-20T07:36:19.000Z" title="2020/12/20 15:36:19">2020-12-20</time>发表</span><span class="level-item"><time dateTime="2021-02-17T13:34:48.000Z" title="2021/2/17 21:34:48">2021-02-17</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span><span class="level-item">39 分钟读完 (大约5820个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">应用层</h1><div class="content"><ul>
+<li>应用层协议的特点</li>
+<li>每个应用层协议都是为了解决某一类应用问题，而问题的解决又往往是通过位于不同主机中的多个应用进程之间的通信和协同工作来完成的。<strong>应用层的具体内容就是规定应用进程在<em>通信时</em>所遵循的协议</strong>。</li>
+<li>应用层的许多协议都是基于<strong>客户服务器</strong>方式。<span id="more"></span>
+</li>
+</ul>
+<h3 id="域名系统-DNS"><a href="#域名系统-DNS" class="headerlink" title="域名系统 DNS"></a>域名系统 DNS</h3><ul>
+<li>域名系统概述<ul>
+<li>许多应用层软件经常直接使用<strong>域名系统 DNS**</strong> (Domain Name System)，但<strong>计算机的用户只是间接而不是直接使用域名系统</strong>。</li>
+<li>互联网采用层次结构的命名树作为主机的名字，并使用<strong>分布式</strong>的域名系统 DNS。</li>
+<li>名字到 IP 地址的解析是由若干个域名服务器程序完成的。域名服务器程序在专设的结点上运行，运行该程序的机器称为<strong>域名服务器</strong>。</li>
+</ul>
+</li>
+<li>互联网的域名结构<ul>
+<li>互联网采用了<strong>层次树状结构</strong>的命名方法。</li>
+<li>任何一个连接在互联网上的主机或路由器，都有一个唯一的层次结构的名字，即域名。</li>
+<li>域名的结构由标号序列组成，各标号之间用点隔开：<strong>… . 三级域名 . 二级域名 . 顶级域名</strong></li>
+<li>各标号分别代表不同级别的域名。</li>
+<li>顶级域名 TLD(Top Level Domain)<ul>
+<li><strong>国家顶级域名 nTLD</strong><ul>
+<li>.cn 表示中国，</li>
+<li>.us 表示美国，</li>
+<li>.uk 表示英国，等等。</li>
+</ul>
+</li>
+<li><strong>通用顶级域名 gTLD</strong><ul>
+<li>最早的顶级域名是：</li>
+<li>.com（公司和企业）</li>
+<li>.net（网络服务机构）</li>
+<li>.org（非赢利性组织）</li>
+<li>.edu（美国专用的教育机构）</li>
+<li>.gov（美国专用的政府部门）</li>
+<li>.mil（美国专用的军事部门）</li>
+<li>.int（国际组织）</li>
+</ul>
+</li>
+<li><strong>基础结构域名 (infrastructure domain)</strong><ul>
+<li>这种顶级域名只有一个，即 <strong>arpa</strong>，用于反向域名解析，因此又称为<strong>反向域名</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>域名服务器<ul>
+<li>一个服务器所负责管辖的（或有权限的）范围叫做<strong>区</strong> (zone)。</li>
+<li>各单位根据具体情况来划分自己管辖范围的区。但在一个区中的所有节点必须是能够连通的。</li>
+<li>每一个区设置相应的<strong>权限域名服务器</strong>，用来保存该区中的所有主机的<strong>域名到 IP 地址的映射</strong>。</li>
+<li><strong>DNS 服务器的管辖范围不是以“域”为单位，而是以“区”为单位</strong>。</li>
+<li><img src="https://pic.zty.plus/DNS%E5%8C%BA%E7%9A%84%E5%88%92%E5%88%86.png" alt="DNS区"></li>
+<li>域名服务器有以下四种类型<ul>
+<li><strong>根域名服务器</strong><ul>
+<li>根域名服务器是<strong>最高层次</strong>的域名服务器，也是<strong>最重要</strong>的域名服务器。所有的根域名服务器都<strong>知道所有的顶级域名服务器的域名和 IP 地址</strong>。</li>
+<li>不管是哪一个<strong>本地域名服务器</strong>，若要对互联网上任何一个域名进行解析，只要自己无法解析，就<strong>首先求助于根域名服务器</strong>。</li>
+<li>在互联网上共有 13 个不同 IP 地址的根域名服务器，它们的名字是用一个英文字母命名，从 a 一直到 m（前 13 个字母）。(a.rootservers.net，b.rootservers.net ……)</li>
+<li><strong>根域名服务器共有 13 套装置，不是 13 个机器</strong>。</li>
+</ul>
+</li>
+<li><strong>顶级域名服务器</strong><ul>
+<li>顶级域名服务器（即 <strong>TLD 服务器</strong>,Top Level Domain）负责<strong>管理在该顶级域名服务器注册的所有二级域名</strong>。</li>
+<li>当收到 DNS 查询请求时，就给出相应的回答（可能是最后的结果，也可能是下一步应当找的域名服务器的 IP 地址）。</li>
+</ul>
+</li>
+<li><strong>权限域名服务器</strong><ul>
+<li>责一个区的域名服务器。</li>
+<li>当一个权限域名服务器还不能给出最后的查询回答时，就会告诉发出查询请求的 DNS 客户，下一步应当找哪一个权限域名服务器</li>
+</ul>
+</li>
+<li><strong>本地域名服务器</strong><ul>
+<li>本地域名服务器对域名系统非常重要。</li>
+<li>当一个主机发出 DNS 查询请求时，这个查询请求报文就发送给本地域名服务器。</li>
+<li>每一个互联网服务提供者 ISP，或一个大学，甚至一个大学里的系，都可以拥有一个本地域名服务器，</li>
+<li>这种域名服务器有时也称为<strong>默认域名服务器</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>域名的解析过程<ul>
+<li><strong>主机向本地域名服务器的查询一般都是采用</strong>递归查询。<br><img src="https://pic.zty.plus/%E6%9C%AC%E5%9C%B0%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2.png" alt="递归查询"></li>
+<li><strong>本地域名服务器向根域名服务器的查询通常是采用</strong>迭代查询。<br><img src="https://pic.zty.plus/%E6%9C%AC%E5%9C%B0%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%AD%E4%BB%A3%E6%9F%A5%E8%AF%A2.png" alt="迭代查询"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="文件传输协议"><a href="#文件传输协议" class="headerlink" title="文件传输协议"></a>文件传输协议</h3><ul>
+<li>FTP概述<ul>
+<li><strong>文件传送协议 FTP</strong> (File Transfer Protocol) 是互联网上使用得最广泛的文件传送协议。</li>
+<li>FTP 提供<strong>交互式</strong>的访问，允许客户指明文件的类型与格式，并允许文件具有存取权限。</li>
+<li>FTP 屏蔽了各计算机系统的细节，因而适合于在异构网络中任意计算机之间传送文件。</li>
+</ul>
+</li>
+<li>FTP 的基本工作原理<ul>
+<li>FTP 特点<ul>
+<li>文件传送协议 FTP 只提供文件传送的一些基本的服务，它<strong>使用 TCP 可靠的运输服务</strong>。</li>
+<li>FTP 的主要功能是减少或消除在不同操作系统下处理文件的不兼容性。</li>
+<li>FTP 使用<strong>客户服务器方式</strong>。一个 FTP 服务器进程可同时为多个客户进程提供服务。FTP 的服务器进程由两大部分组成：<strong>一个主进程</strong>，负责接受新的请求；另外有<strong>若干个从属进程</strong>，负责处理单个请求。</li>
+</ul>
+</li>
+<li>主进程的工作步骤<ul>
+<li>打开熟知端口（<strong>端口号为 21</strong>），使客户进程能够连接上。</li>
+<li>等待客户进程发出连接请求。</li>
+<li>启动从属进程来处理客户进程发来的请求。从属进程对客户进程的请求处理完毕后即终止，但从属进程在运行期间根据需要还可能创建其他一些子进程。</li>
+<li>回到等待状态，继续接受其他客户进程发来的请求。主进程与从属进程的处理是并发地进行。</li>
+</ul>
+</li>
+<li>两个连接<ul>
+<li><strong>控制连接</strong>(21)在整个会话期间一直保持打开，FTP 客户发出的传送请求通过控制连接发送给服务器端的<strong>控制进程</strong>，但控制连接不用来传送文件。</li>
+<li>实际用于传输文件的是“<strong>数据连接</strong>(20)”。服务器端的控制进程在接收到 FTP 客户发送来的文件传输请求后就创建“<strong>数据传送进程</strong>”和“<strong>数据连接</strong>”，用来连接客户端和服务器端的数据传送进程。</li>
+<li>数据传送进程实际完成文件的传送，在传送完毕后关闭“数据传送连接”并结束运行。</li>
+<li><img src="https://pic.zty.plus/FTP%E4%B8%A4%E8%BF%9E%E6%8E%A5.png" alt="FTP两连接"></li>
+</ul>
+</li>
+<li>两个不同的端口号<ul>
+<li>客户进程向服务器进程发出建立连接请求时，要寻找连接服务器进程的<strong>熟知端口 (21)</strong>，同时还要<strong>告诉服务器进程自己的另一个端口号码，用于建立数据传送连接</strong>。</li>
+<li>接着，服务器进程用自己传送数据的<strong>熟知端口 (20)</strong> 与客户进程所提供的端口号码建立数据传送连接。</li>
+<li>由于 FTP 使用了两个不同的端口号，所以数据连接与控制连接不会发生混乱。</li>
+<li>好处：<ul>
+<li>使协议更加简单和更容易实现。</li>
+<li>在传输文件时还可以利用控制连接（例如，客户发送请求终止传输）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>简单文件传送协议 TFTP<ul>
+<li>TFTP (Trivial File Transfer Protocol) 是一个很小且易于实现的文件传送协议。</li>
+<li>TFTP 使用<strong>客户服务器方式</strong>和使用 <strong>UDP 数据报</strong>，因此 TFTP 需要有自己的差错改正措施。</li>
+<li>TFTP 只支持文件传输而<strong>不支持交互</strong>。</li>
+<li>TFTP 没有一个庞大的命令集，<strong>没有列目录的功能</strong>，也<strong>不能对用户进行身份鉴别</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="远程终端协议-TELNET"><a href="#远程终端协议-TELNET" class="headerlink" title="远程终端协议 TELNET"></a>远程终端协议 TELNET</h3><ul>
+<li>TELNET 是一个简单的远程终端协议，也是互联网的正式标准。</li>
+<li>用户用 TELNET 就可在其所在地<strong>通过 TCP 连接</strong>注册（即登录）到远地的另一个主机上（使用主机名或 IP 地址）。</li>
+<li>TELNET 能将用户的击键传到远地主机，同时也能将远地主机的输出通过 TCP 连接返回到用户屏幕。这种服务是透明的，因为用户感觉到好像键盘和显示器是直接连在远地主机上。</li>
+</ul>
+<h3 id="万维网"><a href="#万维网" class="headerlink" title="万维网"></a>万维网</h3><ul>
+<li>万维网概述<ul>
+<li>万维网 WWW (World Wide Web) <strong>并非某种特殊的计算机网络</strong>。</li>
+<li>万维网是一个大规模的、联机式的<strong>信息储藏所</strong>。</li>
+<li>万维网用<strong>链接</strong>的方法能非常方便地从互联网上的一个站点访问另一个站点，从而主动地按需获取丰富的信息。</li>
+<li>这种访问方式称为“<strong>链接</strong>”。</li>
+<li><img src="https://pic.zty.plus/%E4%B8%87%E7%BB%B4%E7%BD%91%E5%88%86%E5%B8%83%E5%BC%8F.png" alt="万维网分布式"></li>
+<li>超媒体与超文本<ul>
+<li>万维网是<strong>分布式超媒体 (hypermedia) 系统</strong>，它是<strong>超文本 (hypertext) 系统的扩充</strong>。</li>
+<li><strong>一个超文本由多个信息源链接成</strong>。利用一个链接可使用户找到另一个文档。这些文档可以位于世界上任何一个接在互联网上的超文本系统中。超文本是万维网的基础。</li>
+<li><strong>超媒体与超文本的区别是文档内容不同</strong>。超文本文档仅包含文本信息，而超媒体文档还包含其他表示方式的信息，如图形、图像、声音、动画，甚至活动视频图像。</li>
+</ul>
+</li>
+<li>万维网的工作方式<ul>
+<li>万维网以<strong>客户-服务器</strong>方式工作。</li>
+<li><strong>浏览器</strong>就是在用户计算机上的万维网<strong>客户程序</strong>。万维网文档所驻留的计算机则运行<strong>服务器程序</strong>，因此这个计算机也称为<strong>万维网服务器</strong>。</li>
+<li>客户程序向服务器程序发出请求，服务器程序向客户程序送回客户所要的<strong>万维网文档</strong>。</li>
+<li>在一个客户程序主窗口上显示出的万维网文档称为<strong>页面</strong> (page)。</li>
+</ul>
+</li>
+<li>万维网必须解决的问题<ul>
+<li><strong>怎样标志分布在整个互联网上的万维网文档？</strong><ul>
+<li>使用<strong>统一资源定位符 URL</strong> (Uniform Resource Locator) 来标志万维网上的各种文档。</li>
+<li>使每一个文档在整个互联网的范围内具有唯一的标识符 URL。</li>
+</ul>
+</li>
+<li><strong>用何协议实现万维网上各种超链的链接？</strong><ul>
+<li>在万维网客户程序与万维网服务器程序之间进行交互所使用的协议，是<strong>超文本传送协议 HTTP</strong> (HyperText Transfer Protocol)。</li>
+<li>HTTP 是一个<strong>应用层协议</strong>，它<strong>使用 TCP 连接</strong>进行可靠的传送。</li>
+</ul>
+</li>
+<li><strong>怎样使各种万维网文档都能在互联网上的各种计算机上显示出来，同时使用户清楚地知道在什么地方存在着超链？</strong><ul>
+<li><strong>超文本标记语言 HTML</strong> (HyperText Markup Language) 使得万维网页面的设计者可以很方便地用一个超链从本页面的某处链接到互联网上的任何一个万维网页面，并且能够在自己的计算机屏幕上将这些页面显示出来。</li>
+</ul>
+</li>
+<li><strong>怎样使用户能够很方便地找到所需的信息？</strong><ul>
+<li>为了在万维网上方便地查找信息，用户可使用各种的<strong>搜索工具</strong>（即<strong>搜索引擎</strong>）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>统一资源定位符 URL<ul>
+<li>URL的格式<ul>
+<li>由以冒号隔开的两大部分组成，并且在 URL 中的字符对大写或小写没有要求。</li>
+<li>URL 的一般形式是：<ul>
+<li><img src="https://pic.zty.plus/URL%E7%9A%84%E4%B8%80%E8%88%AC%E5%BD%A2%E5%BC%8F.png" alt="URL的一般形式"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>超文本传送协议 HTTP<ul>
+<li>HTTP 的操作过程<ul>
+<li>为了使超文本的链接能够高效率地完成，需要用 HTTP 协议来传送一切必须的信息。</li>
+<li>从层次的角度看，HTTP 是<strong>面向事务</strong>的(transaction-oriented)应用层协议，它是万维网上能够可靠地交换文件（包括文本、声音、图像等各种多媒体文件）的重要基础。</li>
+<li><img src="https://pic.zty.plus/%E4%B8%87%E7%BB%B4%E7%BD%91%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B.png" alt="万维网工作过程"></li>
+<li>用户点击 URL <a target="_blank" rel="noopener" href="http://www.tsinghua.edu.cn/chn/yxsz/index.htm">http://www.tsinghua.edu.cn/chn/yxsz/index.htm</a> 后所发生的事件<ul>
+<li>(1) 浏览器分析超链指向页面的 URL。</li>
+<li>(2) 浏览器向 DNS 请求解析 www.tsinghua.edu.cn 的 IP 地址。</li>
+<li>(3) 域名系统 DNS 解析出清华大学服务器的 IP 地址。</li>
+<li>(4) 浏览器与服务器建立 TCP 连接。</li>
+<li>(5) 浏览器发出取文件命令：GET /chn/yxsz/index.htm。</li>
+<li>(6) 服务器给出响应，把文件 index.htm 发给浏览器。</li>
+<li>(7) TCP 连接释放。</li>
+<li>(8) 浏览器显示“清华大学院系设置”文件 index.htm 中的所有文本。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HTTP 的主要特点<ul>
+<li>HTTP 是<strong>面向事务的</strong>客户服务器协议。</li>
+<li><strong>HTTP 1.0</strong> 协议是<strong>无状态的</strong> (stateless)。</li>
+<li>HTTP 协议本身也是<strong>无连接的</strong>，虽然它使用了面向连接的 TCP 向上提供的服务。</li>
+<li><img src="https://pic.zty.plus/HTTP%E8%80%97%E6%97%B6.png" alt="HTTP耗时"></li>
+<li>持续连接<ul>
+<li><strong>HTTP/1.1 协议使用持续连接</strong> (persistent connection)。</li>
+<li>万维网服务器在发送响应后仍然在一段时间内保持这条连接，使同一个客户（浏览器）和该服务器可以继续在这条连接上传送后续的 HTTP 请求报文和响应报文。</li>
+<li>这并不局限于传送同一个页面上链接的文档，而是只要这些文档都在同一个服务器上就行。</li>
+<li>目前一些流行的浏览器（例如，IE 6.0）的默认设置就是使用 HTTP/1.1。</li>
+</ul>
+</li>
+<li>持续连接的两种工作方式<ul>
+<li><strong>非流水线方式</strong>：客户在收到前一个响应后才能发出下一个请求。这比非持续连接的两倍 RTT 的开销节省了建立 TCP 连接所需的一个 RTT 时间。但<strong>服务器在发送完一个对象后，其 TCP 连接就处于空闲状态，浪费了服务器资源</strong>。</li>
+<li><strong>流水线方式</strong>：客户在收到 HTTP 的响应报文之前就能够接着发送新的请求报文。一个接一个的请求报文到达服务器后，服务器就可连续发回响应报文。使用流水线方式时，客户访问所有的对象只需花费一个 RTT 时间，使 TCP 连接中的空闲时间减少，提高了下载文档效率。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>代理服务器<ul>
+<li><strong>代理服务器</strong> (proxy server) 又称为<strong>万维网高速缓存</strong> (Web cache)，它代表浏览器发出 HTTP 请求。</li>
+<li>万维网高速缓存把最近的一些请求和响应暂存在本地磁盘中。</li>
+<li>当与暂时存放的请求相同的新请求到达时，万维网高速缓存就把暂存的响应发送出去，而不需要按 URL 的地址再去互联网访问该资源。  </li>
+</ul>
+</li>
+<li>HTTP 的报文结构<ul>
+<li>HTTP 有两类报文：<ul>
+<li><strong>请求报文</strong>——从客户向服务器发送请求报文。</li>
+<li><strong>响应报文</strong>——从服务器到客户的回答。</li>
+<li>由于 HTTP 是面向正文的 (text-oriented)，因此在报文中的每一个字段都是一些 <strong>ASCII</strong> 码串，因而每个字段的长度都是不确定的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在服务器上存放用户的信息<ul>
+<li>万维网站点使用 Cookie 来跟踪用户。</li>
+<li><strong>Cookie</strong> 表示在 HTTP 服务器和客户之间传递的状态信息。</li>
+<li>使用 Cookie 的网站服务器为用户产生一个<strong>唯一的识别码</strong>。利用此识别码，网站就能够跟踪该用户在该网站的活动。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>万维网的文档<ul>
+<li>超文本标记语言 HTML<ul>
+<li>XML<ul>
+<li>XML (Extensible Markup Language)是可扩展标记语言，它和HTML很相似。</li>
+<li>但XML的设计宗旨是传输数据，而不是显示数据（HTML是为了在浏览器上显示数据）。</li>
+</ul>
+</li>
+<li>XHTML<ul>
+<li>XHTML (Extensible HTML) 是可扩展超文本标记语言，它与 HTML 4.01 几乎是相同的。</li>
+</ul>
+</li>
+<li>CSS<ul>
+<li>CSS (Cascading Style Sheets) 是层叠样式表，它是一种样式表语言，用于为 HTML 文档定义布局。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>动态万维网文档<ul>
+<li><strong>静态文档</strong>是指该文档创作完毕后就存放在万维网服务器中，在被用户浏览的过程中，内容不会改变。</li>
+<li><strong>动态文档</strong>是指文档的内容是在浏览器访问万维网服务器时才由应用程序<strong>动态创建</strong>。</li>
+<li>动态文档和静态文档之间的主要差别体现在服务器一端。这主要是文档内容的生成方法不同。而从浏览器的角度看，这两种文档并没有区别。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>万维网的信息检索系统<ul>
+<li>全文检索搜索和分类目录搜索<ul>
+<li>在万维网中用来进行搜索的程序叫做<strong>搜索引擎</strong>。</li>
+<li><strong>全文检索搜索引擎</strong>是一种纯技术型的检索工具。它的工作原理是通过搜索软件到互联网上的各网站收集信息，找到一个网站后可以从这个网站再链接到另一个网站。然后按照一定的规则建立一个很大的在线数据库供用户查询。</li>
+<li>用户在查询时只要输入关键词，就从已经建立的索引数据库上进行查询（<strong>并不是实时地在互联网上检索到的信息</strong>）。</li>
+</ul>
+</li>
+<li>分类目录搜索<ul>
+<li><strong>分类目录搜索引擎</strong>并不采集网站的任何信息，而是利用各网站向搜索引擎提交的网站信息时填写的关键词和网站描述等信息，经过人工审核编辑后，如果认为符合网站登录的条件，则输入到分类目录的数据库中，供网上用户查询。</li>
+<li>分类目录搜索也叫做<strong>分类网站搜索</strong>。</li>
+</ul>
+</li>
+<li>最著名的全文检索搜索引擎：<ul>
+<li>Google（谷歌）(www.google.com)</li>
+<li>百度 (www.baidu.com)</li>
+</ul>
+</li>
+<li>最著名的分类目录搜索引擎：<ul>
+<li>雅虎 (www.yahoo.com)</li>
+<li>雅虎中国 (cn.yahoo.com)</li>
+<li>新浪 (www.sina.com)</li>
+<li>搜狐 (www.sohu.com)</li>
+<li>网易 (www.163.com)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h3><ul>
+<li>电子邮件概述<ul>
+<li>电子邮件的一些标准<ul>
+<li>发送邮件的协议：SMTP</li>
+<li>读取邮件的协议：POP3 和 IMAP</li>
+<li>MIME 在其邮件首部中说明了邮件的数据类型(如文本、声音、图像、视像等)，使用 MIME 可在邮件中同时传送多种类型的数据。</li>
+</ul>
+</li>
+<li>电子邮件的最主要的组成构件<ul>
+<li><img src="https://pic.zty.plus/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E6%88%90%E6%9E%84%E4%BB%B6.png" alt="电子邮件"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>简单邮件传送协议 SMTP<ul>
+<li>SMTP 所规定的就是在两个相互通信的 SMTP 进程之间应如何交换信息。</li>
+<li>由于 SMTP 使用<strong>客户服务器</strong>方式，因此负责发送邮件的 SMTP 进程就是 SMTP 客户，而负责接收邮件的 SMTP 进程就是 SMTP 服务器。</li>
+<li>SMTP 规定了 14 条命令和 21 种应答信息。每条命令用 4 个字母组成，而每一种应答信息一般只有一行信息，由一个 3 位数字的代码开始，后面附上（也可不附上）很简单的文字说明。</li>
+<li>SMTP 通信的三个阶段<ul>
+<li><strong>连接建立</strong>：连接是在发送主机的 SMTP 客户和接收主机的 SMTP 服务器之间建立的。<strong>SMTP不使用中间的邮件服务器</strong>。</li>
+<li><strong>邮件传送</strong></li>
+<li><strong>连接释放</strong>：邮件发送完毕后，SMTP 应释放 TCP 连接。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="动态主机配置协议-DHCP"><a href="#动态主机配置协议-DHCP" class="headerlink" title="动态主机配置协议 DHCP"></a>动态主机配置协议 DHCP</h3><ul>
+<li>互联网广泛使用的<strong>动态主机配置协议</strong> DHCP (Dynamic Host Configuration Protocol) 提供了<strong>即插即用连网</strong> (plug-and-play networking) 的机制。</li>
+<li>这种机制允许一台计算机加入新的网络和获取IP 地址而不用手工参与。</li>
+<li>DHCP 使用客户-服务器方式<ul>
+<li>需要 IP 地址的主机在启动时就向 DHCP 服务器<strong>广播发送*</strong>发现报文*（DHCPDISCOVER），这时该主机就成为 DHCP 客户。</li>
+<li>本地网络上所有主机都能收到此广播报文，但只有 DHCP 服务器才回答此广播报文。</li>
+<li>DHCP 服务器先在其数据库中查找该计算机的配置信息。若找到，则返回找到的信息。若找不到，则从服务器的 IP 地址池(address pool)中取一个地址分配给该计算机。DHCP 服务器的回答报文叫做<em>提供报文</em>（DHCPOFFER）。</li>
+</ul>
+</li>
+<li>DHCP 中继代理(relay agent)<ul>
+<li>并不是每个网络上都有 DHCP 服务器，这样会使 DHCP 服务器的数量太多。现在是每一个网络至少有一个 DHCP <strong>中继代理</strong>，它配置了 DHCP 服务器的 IP 地址信息。</li>
+<li>当 DHCP 中继代理收到主机发送的发现报文后，就以<strong>单播方式</strong>向 DHCP 服务器<strong>转发</strong>此报文，并等待其回答。收到 DHCP 服务器回答的提供报文后，DHCP 中继代理再将此提供报文发回给主机。</li>
+<li><img src="https://pic.zty.plus/DHCP%E4%B8%AD%E7%BB%A7%E4%BB%A3%E7%90%86.png" alt="DHCP中继代理"></li>
+</ul>
+</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>应用层</p><p><a href="http://tianyuzhou.github.io/2020/12/20/应用层/">http://tianyuzhou.github.io/2020/12/20/应用层/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>TIANYUZHOU</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2020-12-20</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-02-17</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=602d045cb772eb001285a6af&amp;product=sticky-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/wodezhibaoshoukuanma.jpg" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/wodeweixinshoukuanma.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/12/23/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">算法基础概念</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/12/17/%E7%BB%84%E6%88%90%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%A4%8D%E4%B9%A0/"><span class="level-item">组成与系统结构-复习</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>new Valine({
+            el: '#valine-thread' ,
+            appId: "A2kHmiggH1okBvKiadft61wn-gzGzoHsz",
+            appKey: "vSLtbph2vNIIeyBEDtPk8RGX",
+            placeholder: "快来评论吧！",
+            avatar: "wavatar",
+            
+            meta: ["nick","mail","link"],
+            pageSize: 10,
+            lang: "zh-CN",
+            
+            highlight: true,
+            
+            
+            
+            
+            
+            requiredFields: [],
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/%E6%88%91%E7%9A%84%E5%A4%B4%E5%83%8F.jpg" alt="TIANYU同学"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">TIANYU同学</p><p class="is-size-6 is-block">计算机硕士研究生</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>四川 成都</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">27</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/TIANYUZHOU" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/TIANYUZHOU"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="微博" href="https://m.weibo.cn/u/2911735563?uid=2911735563&amp;t=0&amp;luicode=10000011&amp;lfid=100103type%3D1%26q%3Dcuz_tian"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/rss.xml"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://space.bilibili.com/381497449" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的B站</span></span><span class="level-right"><span class="level-item tag">space.bilibili.com</span></span></a></li><li><a class="level is-mobile" href="https://www.baidu.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">百度搜索</span></span><span class="level-right"><span class="level-item tag">www.baidu.com</span></span></a></li><li><a class="level is-mobile" href="https://cn.bing.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">必应搜索</span></span><span class="level-right"><span class="level-item tag">cn.bing.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/"><span class="level-start"><span class="level-item">一些小坑</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">学习笔记</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%91%84%E4%B8%8E%E5%BD%B1/"><span class="level-start"><span class="level-item">摄与影</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%AD%8C%E5%8D%95/"><span class="level-start"><span class="level-item">歌单</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%84%9A%E6%9C%AC/"><span class="level-start"><span class="level-item">脚本</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%A7%86%E9%A2%91/"><span class="level-start"><span class="level-item">视频</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><figure class="media-left"><a class="image" href="/2022/01/24/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/"><img src="/Mainpic/27.jpg" alt="LeetCode刷题笔记"></a></figure><div class="media-content"><p class="date"><time dateTime="2022-01-24T12:33:33.000Z">2022-01-24</time></p><p class="title"><a href="/2022/01/24/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">LeetCode刷题笔记</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2022/01/03/%E7%9B%B8%E5%86%8C/"><img src="/Mainpic/9.jpg" alt="我的图库"></a></figure><div class="media-content"><p class="date"><time dateTime="2022-01-03T14:30:00.000Z">2022-01-03</time></p><p class="title"><a href="/2022/01/03/%E7%9B%B8%E5%86%8C/">我的图库</a></p><p class="categories"><a href="/categories/%E6%91%84%E4%B8%8E%E5%BD%B1/">摄与影</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/01/10/%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%A6%82%E5%BF%B5/"><img src="/Mainpic/24.jpg" alt="数据库-概念"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-01-10T03:06:47.000Z">2021-01-10</time></p><p class="title"><a href="/2021/01/10/%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%A6%82%E5%BF%B5/">数据库-概念</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/01/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AD%E5%8F%A5/"><img src="/Mainpic/24.jpg" alt="数据库语句"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-01-03T12:45:46.000Z">2021-01-03</time></p><p class="title"><a href="/2021/01/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AD%E5%8F%A5/">数据库语句</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2020/12/31/%E7%89%A9%E7%90%86%E5%B1%82/"><img src="/Mainpic/22.jpg" alt="物理层"></a></figure><div class="media-content"><p class="date"><time dateTime="2020-12-31T00:22:36.000Z">2020-12-31</time></p><p class="title"><a href="/2020/12/31/%E7%89%A9%E7%90%86%E5%B1%82/">物理层</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">一月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">十二月 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">十一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">十月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">九月 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/02/"><span class="level-start"><span class="level-item">二月 2020</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/80%C3%9786%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"><span class="tag">80×86汇编语言</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/"><span class="tag">C++内联函数</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/HTML5-CSS-JS%E5%88%9D%E6%AD%A5/"><span class="tag">HTML5+CSS+JS初步</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LeetCode/"><span class="tag">LeetCode</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python%E5%AD%A6%E4%B9%A0/"><span class="tag">Python学习</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python%E5%BA%94%E7%94%A8-%E7%88%AC%E8%99%AB/"><span class="tag">Python应用(爬虫)</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python%E5%BA%94%E7%94%A8-%E7%88%AC%E8%99%AB-XPath/"><span class="tag">Python应用(爬虫-XPath)</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python%E8%87%AA%E5%8A%A8%E6%89%93%E5%8D%A1/"><span class="tag">Python自动打卡</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/VS-Code%E5%B0%8F%E5%9D%91/"><span class="tag">VS Code小坑</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E5%8C%BA%E3%80%81%E5%88%86%E6%AE%B5%E3%80%81%E6%AE%B5%E9%A1%B5%E5%BC%8F/"><span class="tag">分区、分段、段页式</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%BE%E5%BA%93/"><span class="tag">图库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E5%91%A8%E6%9D%B0%E4%BC%A6/"><span class="tag">我的歌单-周杰伦</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E6%9E%97%E4%BF%8A%E6%9D%B0/"><span class="tag">我的歌单-林俊杰</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E8%B5%B5%E6%B5%B7%E6%B4%8B/"><span class="tag">我的歌单-赵海洋</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/"><span class="tag">我的歌单-陈奕迅</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8B%93%E5%B1%95/"><span class="tag">拓展</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="tag">操作系统</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/"><span class="tag">操作系统-课后习题</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"><span class="tag">数据挖掘</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%97%85%E8%A1%8C/"><span class="tag">旅行</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"><span class="tag">第一篇文章</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/"><span class="tag">算法分析与设计</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E6%8F%92%E4%BB%B6%E5%B0%8F%E5%9D%91/"><span class="tag">网易云插件小坑</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%A7%86%E9%A2%91%E4%BD%9C%E5%93%81/"><span class="tag">视频作品</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/"><span class="tag">计算机组成与系统结构</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="tag">计算机网络</span><span class="tag">7</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=ztyzhou/YjNL&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="ztyzhou/YjNL" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/2.png" alt="程序员的文章" height="28"></a><p class="is-size-7"><span>&copy; 2023 TIANYUZHOU</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="摄与影" href="https://ztyzhou.com/categories/%E6%91%84%E4%B8%8E%E5%BD%B1/"><i class="fas fa-camera-retro"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="视频" href="https://ztyzhou.com/2020/02/01/%E8%A7%86%E9%A2%91/"><i class="fas fa-spinner fa-spin"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="GitHub 登录" href="https://github.com/"><i class="fab fa-github"></i></a></p></div><div style="text-align:center"><p>备案号：<a target="_blank" rel="noopener" href="https://beian.miit.gov.cn">蜀ICP备20006402号-2</a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

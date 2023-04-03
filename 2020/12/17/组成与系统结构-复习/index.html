@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>组成与系统结构-复习 - 程序员的文章</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="程序员的文章"><meta name="msapplication-TileImage" content="/img/1.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="程序员的文章"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="名词解释 对阶 浮点数加&amp;#x2F;减运算时，在尾数相加&amp;#x2F;减之前所进行的操作称为对阶。 对阶时，需要比较两个阶的大小。阶小的那个数的尾数右移（小数点左移），阶码增加。右移一次，阶码加1，直到两数的阶码相等为止。"><meta property="og:type" content="blog"><meta property="og:title" content="组成与系统结构-复习"><meta property="og:url" content="http://tianyuzhou.github.io/2020/12/17/%E7%BB%84%E6%88%90%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%A4%8D%E4%B9%A0/"><meta property="og:site_name" content="程序员的文章"><meta property="og:description" content="名词解释 对阶 浮点数加&amp;#x2F;减运算时，在尾数相加&amp;#x2F;减之前所进行的操作称为对阶。 对阶时，需要比较两个阶的大小。阶小的那个数的尾数右移（小数点左移），阶码增加。右移一次，阶码加1，直到两数的阶码相等为止。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://tianyuzhou.github.io/Mainpic/25.jpg"><meta property="article:published_time" content="2020-12-17T05:59:07.000Z"><meta property="article:modified_time" content="2021-02-17T13:36:06.000Z"><meta property="article:author" content="TIANYUZHOU"><meta property="article:tag" content="计算机组成与系统结构"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/Mainpic/25.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://tianyuzhou.github.io/2020/12/17/%E7%BB%84%E6%88%90%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%A4%8D%E4%B9%A0/"},"headline":"程序员的文章","image":["http://tianyuzhou.github.io/Mainpic/25.jpg"],"datePublished":"2020-12-17T05:59:07.000Z","dateModified":"2021-02-17T13:36:06.000Z","author":{"@type":"Person","name":"TIANYUZHOU"},"description":"名词解释 对阶 浮点数加&#x2F;减运算时，在尾数相加&#x2F;减之前所进行的操作称为对阶。 对阶时，需要比较两个阶的大小。阶小的那个数的尾数右移（小数点左移），阶码增加。右移一次，阶码加1，直到两数的阶码相等为止。"}</script><link rel="canonical" href="http://tianyuzhou.github.io/2020/12/17/%E7%BB%84%E6%88%90%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%A4%8D%E4%B9%A0/"><link rel="alternate" href="/atom.xml" title="程序员的文章" type="application/atom+xml"><link rel="icon" href="/img/1.png"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?66aa3594928a536d6d93ed30544fffe8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.2"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/2.png" alt="程序员的文章" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/TIANYUZHOU"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/Mainpic/25.jpg" alt="组成与系统结构-复习"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-12-17T05:59:07.000Z" title="2020/12/17 13:59:07">2020-12-17</time>发表</span><span class="level-item"><time dateTime="2021-02-17T13:36:06.000Z" title="2021/2/17 21:36:06">2021-02-17</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span><span class="level-item">1 小时读完 (大约7908个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">组成与系统结构-复习</h1><div class="content"><h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><ul>
+<li><strong>对阶</strong><ul>
+<li>浮点数加/减运算时，在尾数相加/减之前所进行的操作称为对阶。</li>
+<li>对阶时，需要比较两个阶的大小。阶小的那个数的尾数右移（小数点左移），阶码增加。右移一次，阶码加1，直到两数的阶码相等为止。<span id="more"></span></li>
+</ul>
+</li>
+<li><strong>真值</strong><ul>
+<li><strong>机器数真正的值</strong>(即原来带有正负号的数)称为机器数的真值。</li>
+</ul>
+</li>
+<li><strong>机器数</strong><ul>
+<li>通常将数值数据在计算机内部编码表示的数称为机器数。</li>
+</ul>
+</li>
+<li><strong>机器字长</strong><ul>
+<li>一个二进制位(bit,比特)是计算机内部信息表示的最小单位。</li>
+<li>而机器字长指的是特定计算机中CPU用于<strong>定点整数运算的数据通路的宽度</strong>，通常也就是CPU内<strong>定点数运算器和通用寄存器的位数</strong>。</li>
+</ul>
+</li>
+<li><strong>数据通路</strong><ul>
+<li>数据通路是指，指令在执行过程中数据所经过的<strong>部件</strong>以及<strong>部件之间的连接线路</strong>，主要由 <strong>ALU</strong> 和<strong>一组寄存器、存储器、总线等组成</strong>。</li>
+<li>国内许多教科书中提到的运算器即是运算数据通路。</li>
+</ul>
+</li>
+<li><strong>立即寻址</strong><ul>
+<li>指令中的地址码直接给出操作数本身。</li>
+</ul>
+</li>
+<li><strong>直接寻址</strong><ul>
+<li>指令中的地址码给出的是操作数所在的存储单元地址，称为直接地址。</li>
+</ul>
+</li>
+<li><strong>间接寻址</strong><ul>
+<li>指令中的地址码给出的是操作数所在的存储单元地址所在的存储单元地址，称为间接地址。</li>
+</ul>
+</li>
+<li><strong>寄存器寻址</strong><ul>
+<li>指令中的地址码给出的是操作数所在的寄存器的编号。</li>
+</ul>
+</li>
+<li><strong>寄存器间接寻址</strong><ul>
+<li>指令中的地址码给出的是操作数所在的存储单元的地址所在的寄存器的编号。</li>
+</ul>
+</li>
+<li><strong>相对寻址</strong><ul>
+<li>相对寻址方式下，指令中的形式地址给出一个位移量D，而基准地址由程序计数器PC提供。即有效地址$EA=(PC)+D$。</li>
+</ul>
+</li>
+<li><strong>基址寻址</strong><ul>
+<li>基址寻址方式下，指令中的地址码给出一个形式地址，作为位移量，并且<strong>隐含或明显地</strong>指定一个寄存器作为基址寄存器，基址寄存器的内容和形式地址相加，得到操作数的有效地址，根据有效地址到存储器中访问，去取操作数或写运算结果。</li>
+</ul>
+</li>
+<li><strong>变址寻址</strong><ul>
+<li>变址寻址方式下，指令中的地址码给出一个形式地址，并且隐<strong>含或明显地</strong>指定一个寄存器作为变址寄存器，变址寄存器的内容（变址值）和形式地址相加，得到操作数的有效地址，根据有效地址到存储器中访问，去取操作数或写运算结果。</li>
+</ul>
+</li>
+<li><strong>中断向量</strong><ul>
+<li>每个中断源都有对应的处理程序，我们称这个处理程序为中断服务程序，其<strong>入口地址</strong>称为中断向量。</li>
+</ul>
+</li>
+<li><strong>向量中断</strong><ul>
+<li>是指一种<strong>识别中断源的技术或方式</strong>。识别中断源的目的就是要找到中断源对应的中断服务程序的入口地址，即获得向量地址。</li>
+</ul>
+</li>
+<li><strong>中断向量表</strong><ul>
+<li>所有中断（包括异常）的中断服务程序入口地址构成一个表，称为中断向量表。</li>
+<li>也有的机器把中断服务程序入口的跳转指令构成一张表，称为中断向量跳转表。</li>
+</ul>
+</li>
+<li><strong>向量地址</strong><ul>
+<li>中断向量表或中断向量跳转表中每个<strong>表项</strong>所在的内存地址称为向量地址。</li>
+</ul>
+</li>
+<li><strong>结构冒险</strong><ul>
+<li>在指令流水线中，同一个<strong>部件</strong>同时被不同指令所使用的现象称为结构冒险，也称为资源冲突。</li>
+</ul>
+</li>
+<li><strong>数据冒险</strong><ul>
+<li>在指令流水线中，后面指令用到前面指令的<strong>结果</strong>时，前面指令的结果还未产生的现象称为数据冒险，也称为数据相关。</li>
+</ul>
+</li>
+<li><strong>控制冒险</strong><ul>
+<li>在指令流水线中，<strong>转移指令或异常</strong>等情况改变了程序执行的流程，而使得在目标地址产生前已被取到流水线中的指令无效的现象称为控制冒险，也称分支冒险。</li>
+</ul>
+</li>
+<li><strong>存储保护</strong><ul>
+<li>虚拟存储器可以实现多道程序运行，也就是说，在一个主存物理空间中同时有多个进程共存。</li>
+<li>为避免<strong>主存中</strong>多道程序的相互干扰，防止某进程出错而破坏其他进程的正确性，或某进程不合法地访问其他进程的存储器，应对每个进程进行存储保护。</li>
+</ul>
+</li>
+<li><strong>缺页</strong><ul>
+<li>需要访问的页不在内存中时，则发生“缺页异常”。通过检查“有效位”就可以判断是否“缺页”。</li>
+</ul>
+</li>
+<li><strong>页表</strong><ul>
+<li>每个进程有一个页表，记录该进程的每个页存放在主存的哪个页框中，或在辅存的哪个地方。</li>
+<li>页表中一般有装入位（有效位）、修改位、使用位、实页号等。</li>
+</ul>
+</li>
+<li><strong>DMA 方式</strong><ul>
+<li>DMA 是Direct Memory Access(直接存储器存取)的缩写。</li>
+<li>每次需要进行外设数据读写时，首先 CPU 把要传送的数据个数、数据块在内存的首址、数据传送的方向（是读还是写操作）、设备的地址等参数送给 DMA 控制器，然后发送一个命令给 DMA 接口，启动外设进行数据准备工作。在这些工作完成后，CPU 就继续进行其他工作。</li>
+<li>此时，外设和 CPU 并行工作，而 I/O 设备和主存交换数据的事情就交给了 DMA 控制器。</li>
+</ul>
+</li>
+</ul>
+<h3 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h3><ul>
+<li><strong>为什么计算机内部采用二进制表示信息？既然计算机内部所有信息都用二进制表示，为什么还用到十六进制或八进制数？</strong><ul>
+<li>使用二进制原因：<ul>
+<li>二进制系统只有两个基本符号：0 和 1。所以它的基本符号少，易于稳态电路的实现。</li>
+<li>二进制的编码、记数、运算等规则简单。</li>
+<li>二进制中的 0 和 1 与逻辑命题的“真”和“假”的对应关系简单，为计算机中实现逻辑运算和程序中的逻辑判断提供了便利的条件，特别是能通过逻辑门电路方便地实现算术运算。</li>
+</ul>
+</li>
+<li>计算机内部在进行信息的存储、传送和运算时，都是以二进制形式来表示信息的。但在屏幕上或书本上书写信息时，由于二进制信息位数多，阅读、记忆不方便，而十六进制、八进制和二进制的对应关系简单，又便于阅读、记忆和书写，所以引入十六进制或八进制，使得人们在开发、调试程序和阅读机器内部代码时，能方便地用八进制或十六进制来等价表示二进制信息。</li>
+</ul>
+</li>
+<li><strong>常用的定点数编码方式有哪几种？通常它们各自用来表示什么？</strong><ul>
+<li>定点数是计算机中小数点固定在最左边或最右边的数，有定点整数和定点小数两种。</li>
+<li>定点数的编码方式有<strong>原码、反码、补码和移码</strong>。浮点数的<strong>尾数</strong>一般用<strong>原码</strong>小数来表示；浮点数的<strong>阶码</strong>一般用<strong>移码</strong>来表示；常用<strong>补码</strong>表示<strong>带符号整数</strong>；而反码很少被使用，只用在某些特殊场合。</li>
+</ul>
+</li>
+<li><strong>在浮点数的基数和总位数一定的情况下，浮点数的表示范围和精度分别由什么决定？两者如何互制约？</strong><ul>
+<li>浮点数的精度取决于尾数的位数，数值范围取决于阶码的位数。在浮点数总位数不变的情况下，阶码位数越多，则尾数位数越少，即表示范围越大，则精度越差（数变稀疏）。</li>
+</ul>
+</li>
+<li><strong>一条指令中应该显式或隐式地给出寻址信息是什么？</strong><ul>
+<li><strong>操作码</strong>：指定操作类型，如移位、加减乘除、传送等。</li>
+<li><strong>源操作数或其地址</strong>：指出一个或多个源操作数或其地址，可以是主(虚)存地址、寄存器编号、或 I/O 端口，也可以在指令中直接给出一个立即数。</li>
+<li><strong>结果的地址</strong>：结果所存放的地址，可以是主(虚)存地址、寄存器编号、或 I/O 端口。</li>
+<li><strong>下一条指令地址</strong>：下一条指令存放的地址，可以是主(虚)存地址。</li>
+</ul>
+</li>
+<li><strong>哪些寻址方式下的操作数在寄存器中？哪些寻址方式下的操作数在存储器中？</strong><ul>
+<li>操作数在寄存器中：寄存器寻址。</li>
+<li>操作数在存储器中：直接寻址、间接寻址、寄存器间接寻址、偏移寻址（变址寻址、基址寻址、相对寻址）。</li>
+</ul>
+</li>
+<li><strong>基址寻址方式和变址寻址方式的作用各是什么？有何相同点和不同点？</strong><ul>
+<li><strong>相同点</strong>：变址寻址方式和基址寻址方式的有效地址形成过程类似。</li>
+<li><strong>不同点</strong>（两个方面）：<ul>
+<li><strong>具体应用的场合不同</strong>：<ul>
+<li>变址寻址面向用户，可用于访问字符串、数组、表格等成批数据或其中的某些元素（变址寻址作用）。</li>
+<li>基址寻址面向系统，用于解决程序的重定位问题和短地址访问大空间的问题（基址寻址作用）。</li>
+</ul>
+</li>
+<li><strong>使用方式不同</strong>：<ul>
+<li>变址寻址时，指令中提供的形式地址是一个基准地址，位移量由变址寄存器给出。</li>
+<li>而基址寻址时，指令中给出的形式地址为位移量，而基址寄存器中存放的是基准地址。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>RISC(精简指令集计算机) 处理器的特点有哪些？</strong><ul>
+<li><strong>指令数目少</strong>：只包含使用频度高的简单指令。</li>
+<li><strong>指令格式规整</strong>：寻址方式少，指令格式少，指令长度一致。</li>
+<li><strong>采用$Load/Store$型指令设计风格</strong>：只有 Load 和 Store 指令才能访存。</li>
+<li><strong>采用流水线方式执行指令</strong>：规整的指令格式有利于采用流水线方式执行，除$Load/Store$指令外，其他指令都只需一个或小于一个时钟周期就可完成，指令周期短。</li>
+<li><strong>采用大量通用寄存器</strong>：编译器可将变量分配到寄存器中，以减少访存次数。</li>
+<li><strong>采用硬连线控制器</strong>：指令少而规整使得控制器的实现变得简单，可以不用或少用微程序控制。</li>
+<li><strong>采用优化的编译系统</strong>：指令数少有利于编译器的优化。</li>
+</ul>
+</li>
+<li><strong>CPU 中标志寄存器的功能是什么？有哪几种基本标志？</strong><ul>
+<li>标志寄存器又称程序状态字。用于存放条件标志、控制标志，反映处理器的状态和ALU运算结果的某些特征及控制指令的执行。</li>
+<li>6个状态标志：<ul>
+<li>CF(Carry Flag)——进位标志位。</li>
+<li>PF(Parity Flag)——奇偶标志位。该标志位反映运算结果中1的个数是偶数还是奇数。</li>
+<li>AF(Auxiliary carry Flag)——辅助进位标志位。当执行一个加法(或减法)运算，使结果的低4位向高4位有进位(或借位)时，AF=1；否则AF=0。</li>
+<li>ZF(Zero Flag)——零标志位。</li>
+<li>SF(Sign Flag)——符号标志位。</li>
+<li>OF(Overflow Flag)——溢出标志位。</li>
+</ul>
+</li>
+<li>3个控制标志位用来控制CPU的操作，由指令进行置位和复位。<ul>
+<li>DF(Direction Flag)——方向标志位。它用以指定字符串处理时的方向。</li>
+<li>IF(Interrupt enable Flag)——中断允许标志位。它用来控制8086是否允许接收外部中断请求。</li>
+<li>TF(Trap Flag)——跟踪标志位。它是为调试程序而设定的陷阱控制位。当该位置“1”时，8086 CPU处于单步状态，此时CPU每执行完一条指令就自动产生一次内部中断。当该位复位后，CPU恢复正常工作。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>CPU 的基本组成和基本功能各是什么？</strong><ul>
+<li>CPU 主要由<strong>数据通路</strong>和<strong>控制单元</strong>(部件)组成。<ul>
+<li>数据通路中包含组合逻辑单元和存储信息的状态单元。组合逻辑单元用于对数据进行处理，如加法器、ALU、扩展器(0扩展或符号扩展)、多路选择器以及总线接口逻辑等；状态单元包括触发器、寄存器等，用于对指令执行的中间状态或最终结果进行保存。</li>
+<li>控制单元也称为控制器，主要功能是对取出的指令进行译码，并与指令执行得到的条件码或当前机器的状态、时序信号等组合，生成对数据通路进行控制的控制信号。</li>
+</ul>
+</li>
+<li>CPU总是周而复始地执行指令，并在执行指令过程中检测和处理内部异常事件和外部中断请求。在此过程中，要求CPU具有以下各种功能：<ul>
+<li><strong>取指令并译码</strong>：从存储器取出指令，并对指令操作码译码，以控制CPU进行相应的操作。</li>
+<li><strong>计算PC的值</strong>：通过自动计算PC的值来确定下一条指令地址，以正确控制执行顺序。</li>
+<li><strong>算数逻辑运算</strong>：计算操作数地址，或对操作数进行算术或逻辑运算。</li>
+<li><strong>取操作数或写结果</strong>：通过控制对存储器或I/O接口的访问来读取操作数或写结果。</li>
+<li><strong>异常或中断处理</strong>：检测有无异常事件或中断请求，必要时响应并调出相应处理程序执行。</li>
+<li><strong>时序控制</strong>：通过生成时钟信号来控制上述每个操作的先后顺序和操作时间。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>取指令部件的功能是什么？</strong><ul>
+<li>取指令并计算下条指令地址。</li>
+<li>下地址逻辑中，要区分是顺序执行还是转移执行。顺序执行，PC=PC+取出的指令长度；转移执行要根据当前指令是分支还是跳转指令来计算目标地址。</li>
+</ul>
+</li>
+<li><strong>控制器的功能是什么？</strong><ul>
+<li>对指令进行译码，将译码结果和状态/标志信号和时序信号进行组合，产生各种操作信号，即产生各条指令所需的控制信号。</li>
+<li>有两大类控制信号：CPU 内部控制信号和发送到系统总线上的控制信号。</li>
+</ul>
+</li>
+<li><strong>硬连线控制器和微程序控制器的特点各是什么？</strong><ul>
+<li>硬连线路控制器的优点是<strong>速度快</strong>，<strong>适合于实现简单或规整的指令系统</strong>。但是，它是一个多输入/多输出的巨大逻辑网络。对于复杂的指令系统来说，其<strong>结构庞杂</strong>，<strong>实现困难</strong>，<strong>修改、维护不易</strong>，<strong>灵活性差</strong>。</li>
+<li>微程序控制器的特点是具有<strong>规整性</strong>、<strong>可维护性</strong>和<strong>灵活性</strong>，但<strong>速度慢</strong>。</li>
+<li>为了结合两种方式的优点，很多出理解采用两者结合的方式来实现。</li>
+</ul>
+</li>
+<li><strong>为什么 CISC 大多用微程序控制器实现，RISC 大多用硬连线控制器实现？</strong><ul>
+<li>CISC 的<strong>指令功能复杂</strong>，<strong>寻址方式多</strong>，<strong>指令长度可变</strong>，<strong>指令格式多样</strong>。对应的硬连线控制器<strong>结构庞杂</strong>，<strong>实现困难</strong>，<strong>修改、维护不易</strong>，<strong>灵活性差</strong>。所以适合采用微程序方式来设计控制器。</li>
+<li>RISC 的指令集中只包含程序常用的指令，具有<strong>指令数目少</strong>、<strong>指令格式规整</strong>、<strong>采用(Load/Store)型指令风格</strong>等特点。所以适合采用硬连线方式来设计控制器。</li>
+</ul>
+</li>
+<li><strong>流水线方式下，一条指令的执行时间缩短还是加长了？程序执行时间是缩短了还加长了？</strong><ul>
+<li>流水线方式会<strong>延长</strong>一条指令的执行时间，但不会缩短。原因是在一条确定的流水线的流水段个数中，是以最复杂的指令执行过程所需的流水段个数为标准设计的；在确定每个流水段宽度时也是以最复杂流水段所需的宽度来设计。此外每个流水段之间的信息缓存和传递等也会增加额外开销。</li>
+<li>流水线方式可以<strong>缩短</strong>程序的执行时间，即大大增加指令执行的吞吐率。</li>
+</ul>
+</li>
+<li><strong>具有什么特征的指令集易于实现指令流水线？</strong><ul>
+<li><strong>指令长度应尽量一致</strong>（定长指令字和定长操作码）使得每条指令的预取及译码操作时间完全一致，<strong>便于流水线控制</strong>。</li>
+<li><strong>指令格式尽量规整，尽量保证源寄存器的位置相同</strong>，<strong>便于规划取操作数步骤</strong>，并使得对指令进行译码的同时，可以读取寄存器操作数。</li>
+<li><strong>采用装入/存储(Load/Store)型指令风格</strong>，<strong>便于利用执行运算步骤来进行地址计算</strong>，即将地址计算和运算指令的执行步骤规整在同一个周期。</li>
+</ul>
+</li>
+<li><strong>流水线处理器中时钟周期如何确定？单条流水线处理器的 CPI 为多少？每个时钟周期一定有一条指令完成吗？为什么？</strong><ul>
+<li>流水线的流水段个数以最复杂的指令执行过程所需的流水段个数为标准设计的；在确定每个流水段宽度时也是以最复杂流水段所需的宽度来设计。</li>
+<li>不能。理想情况下，经过若干周期后，能在每个时钟周期内执行完一条指令，即 CPI=1 但是，当程序中出现以下情况时，流水线被破坏，因而，不能达到CPI=1。</li>
+<li>原因：有多条指令的不同阶段都要用到同一个功能部件时，发生资源冲突（<strong>结构冒险</strong>），后面指令要延时执行；当程序的执行流程发生改变时，发生控制相关（<strong>控制冒险</strong>），原来按顺序取出的指令无效；当后面指令的操作数是前面指令的运行结果时，发生数据相关（<strong>数据冒险</strong>），后面指令要延时执行。此外，还有cache缺失、TLB缺失、异常和中断等的发生都会阻塞流水线的执行。</li>
+</ul>
+</li>
+<li><strong>为什么要在各流水段之间加寄存器？各流水段寄存器的宽度是否都一样？为什么？</strong><ul>
+<li>每两个相邻流水段之间需要设置一个流水段寄存器，用来存放前一个流水段中产生的并需要传输到其后所有流水段的信息，包括各种<strong>数据</strong>（PC、指令、立即数、运算结果、寄存器号等）和<strong>控制信号</strong>两大类信息。</li>
+<li>每个流水段功能不同，所需传递到信息也不同，因此各流水段寄存器长度也不同。</li>
+</ul>
+</li>
+<li><strong>计算机内部为何要采用层次化存储体系结构？层次化存储体系结构如何构成？</strong><ul>
+<li>原因：每一种单独的存储器都不是又快、又大、又便宜，<strong>为了构建这种理想的存储系统</strong>，计算机采用了一种层次化的存储体系结构。</li>
+<li>按照<strong>速度从快到慢</strong>、<strong>容量从小到大</strong>、<strong>价格从高到低</strong>的顺序，由近到远地将不同存储器设置在离 CPU 远近不同地地方，这样的顺序是寄存器-&gt;cache-&gt;主存-&gt;SSD或磁盘-&gt;光盘和磁带。</li>
+</ul>
+</li>
+<li><strong>SRAM 芯片和 DRAM 芯片各有哪些特点？各自用在哪些场合？</strong><ul>
+<li>静态随机访问存储器(Static RAM,SRAM)：靠触发器的双稳态的正负反馈电路存储信息，因而<strong>速度快</strong>，是<strong>非破坏性读出</strong>，但电路中<strong>元器件多</strong>，因而<strong>集成度小</strong>、<strong>价格贵</strong>、<strong>功耗大</strong>。<strong>适合做高速小容量的半导体存储器</strong>，如<strong>高速缓冲存储器</strong>(cache)。</li>
+<li>动态随机访问存储器(Dynamic RAM,DRAM)：靠电容存储电荷来保存信息。<strong>集成度高</strong>、<strong>功耗小</strong>、<strong>价格相对较低</strong>，是<strong>破坏性读出</strong>，读出后需要再生，而且需要<strong>定时刷新</strong>。适合做<strong>慢速大容量的半导体存储器</strong>，如<strong>主存</strong>。</li>
+</ul>
+</li>
+<li><strong>为什么在 CPU 和主存之间引入 cache 能提高 CPU 访存效率？</strong><ul>
+<li>原因：程序执行代码和数据的存储访问具有<strong>局部性特点</strong>，包括时间局部性和空间局部性。</li>
+<li>时间局部性指某个单元在一个很短的时间段内被重复访问的可能性很大；空间局部性指某个单元被访问后其周围单元不久也将被访问的可能性很大。</li>
+<li>只要将刚被访问的单元及其邻近单元一起复制到cache中，那么，在最近一段时间内CPU访问的信息都可以在cache中访问到，而不需要访问慢速的主存。</li>
+</ul>
+</li>
+<li><strong>什么是页表？什么是快表(TLB)？</strong><ul>
+<li>页表：每个进程有一个页表，记录该进程的每个页存放在主存的哪个页框中，或在辅存的哪个地方。页表中一般有装入位（有效位）、修改位、使用位、实页号等。</li>
+<li>快表：用一个特殊的 cache 来跟踪记录最近用过的页表表项。因为页表表项主要用于地址转换，所以把这种特殊的 cache 称为转换后援缓冲器(Translation-Lookaside Buffer,TLB)。因为在TLB中查找页表表项速度很快，所以TLB也被称为快表。</li>
+</ul>
+</li>
+<li><strong>什么是 I/O 接口？I/O 接口的基本功能有哪些？按数据传送方式分有哪两种接口类型？</strong><ul>
+<li>I/O 接口是用于<strong>连接主机和外设</strong>并通过接受主机命令来<strong>对外设进行控制的部件</strong>的总称。</li>
+<li>功能：<ul>
+<li><strong>数据缓冲</strong>：匹配主机和外设工作速度；</li>
+<li><strong>错误或状态检测</strong>：是否完成、是否出错；</li>
+<li><strong>控制和定时</strong>：协调内部资源和外设间动作的先后关系；</li>
+<li><strong>数据格式转换</strong>：串/并行转换，数据宽度转换等。</li>
+</ul>
+</li>
+<li>按数据传送方式分有：并行接口、串行接口。</li>
+</ul>
+</li>
+<li><strong>CPU 如何进行设备的寻址？I/O 端口的编址方式有哪两种？各有何特点？</strong><ul>
+<li>CPU 通过地址总线进行设备寻址。</li>
+<li>I/O 端口一般有两种编址方式：独立编址和统一编址。</li>
+<li><strong>独立编址</strong>：<strong>将 I/O 端口和主存单元分别编号</strong>，不占用主存单元的地址空间，因而主存单元和 I/O 端口可能会有相同的编号，但地址位数大多不同，主存单元多，地址空间大，因而地址位数多；I/O 端口少，地址空间小，因而地址位数少。因为可能有相同的编号，指令中<strong>无法靠地址来区分要访问的是主存单元还是 I/O 端口</strong>，所以，需要有和访存指令不同的操作码，因此， <strong>需要设计专门的I/O指令</strong>。</li>
+<li><strong>统一编址</strong>：<strong>I/O 端口和主存单元统一编址</strong>，所以也称为存储器映射I/O (memory-mapped I/O)方式。一个地址空间分成了两部分，各在不同的地址段中，但地址的位数是相同的，<strong>可根据地址范围的不同来区分访问的是主存单元还是 I/O 端口</strong>，所以<strong>无需专门的输入输出指令</strong>。</li>
+</ul>
+</li>
+<li><strong>什么是程序查询 I/O 方式？说明其工作原理。</strong><ul>
+<li>CPU 通过执行查询程序来完成对外设的控制，实现和外设的数据传送。</li>
+<li>在查询程序中，CPU首先通过读取状态端口中的状态信息，了解接口是否已“就绪”(或“完成”)，若是，就通过数据端口进行新的数据传送，并查询外设是否空闲，在外设空闲的情况下，通过发送控制信息到命令端口，然后由接口发“启动”命令送外设；如果接口没有就绪，或外设不空闲，则CPU继续查询，以等待接口就绪或外设空闲。</li>
+<li>所有信息(包括控制、数据、状态)的交换由查询程序中的I/O指令完成。</li>
+</ul>
+</li>
+<li><strong>什么是中断 I/O 方式？说明其工作原理。</strong><ul>
+<li>程序中断I/O方式下，CPU启动外设后，就转到另外一个程序执行，此时，外设和 CPU 并行工作。</li>
+<li>一旦外设完成任务，便发中断请求给CPU，告知CPU此次任务已经完成。此时，CPU暂停正在执行的程序，转到一个中断服务程序进行中断处理，在中断处理过程中，进行外设下一步的准备工作(例如，传送下一个要打印的数据，或者取走键盘数据或采样数据，为下次输入腾空数据缓冲寄存器，等等)，最后启动外设，并回到原程序继续执行。此时，CPU和外设又能并行工作。</li>
+</ul>
+</li>
+<li><strong>为什么在保护现场和恢复现场的过程中,CPU 必须关中断？</strong><ul>
+<li>在保护断点和现场以及恢复断点和现场过程中，如果又有新的中断被响应，则原被保护的断点或现场就会被破坏。</li>
+<li>因而，需要一种机制能保证断点和现场的保护及恢复过程不被新的中断请求打断。</li>
+</ul>
+</li>
+<li><strong>DMA 方式能够提高成批数据交换效率的主要原因何在？</strong><ul>
+<li>DMA 方式下，CPU 只要在最初的 DMA 控制器初始化和最后处理“DMA 结束”中断时介入，而在整个一块数据传送过程中都不需要 CPU 参与，因而 CPU 用于 I/O 的开销非常小。</li>
+</ul>
+</li>
+<li><strong>CPU 响应 DMA 请求和响应中断请求有什么区别？为什么通常使 DMA 请求具有高于中断请求的优先权？</strong><ul>
+<li>DMA 方式下，向 CPU 请求的是<strong>总线控制权</strong>，要求 CPU 让出总线控制权给 DMA 控制器，由DMA控制器来控制总线完成主存和外设之间的数据交换。因此，CPU只要用完总线后就可以响应请求，释放总线，让出总线控制权。CPU 总是在一次总线事务完成后响应，因此，<strong>DMA 响应时间应该少于一个总线周期</strong>。</li>
+<li>而中断方式下请求的是 <strong>CPU 时间</strong>，要求 CPU 中止正在执行的程序，<strong>转到中断服务程序去执行</strong>，通过执行中断服务程序，对中断事件进行相应的处理。CPU 总是要等到一条指令执行结束后，才去查询有无中断请求，所以<strong>响应时间少于一个指令周期的时间</strong>。</li>
+<li>原因：<strong>DMA请求得不到及时响应，I/O传输数据可能会丢失。</strong></li>
+</ul>
+</li>
+<li><strong>如何解决结构冒险？</strong><ul>
+<li>通过以下两种规整流水线结构的方式可以解决部分结构冒险：<ul>
+<li>规定每个功能部件在每条指令执行过程中只能被使用一次。例如，每条指令只能用一次“寄存器写口”。</li>
+<li>每个功能部件只能在一个特定的流水段内被使用。例如，“寄存器写口”只能在第5个流水阶段被使用。</li>
+<li>另外，指令和数据分别存放在不同的存储器中，使得同时访问指令和数据不会引起存储器资源的结构冒险。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>什么是控制冒险？哪些情况下会发生控制冒险？</strong><ul>
+<li>正常情况下PC的值按顺序增量，但在执行转移类指令或发生异常和中断时，PC 的值由指令或异常/中断处理部件给岀。</li>
+<li>流水线方式下，如果在取下一条指令时，正确的下条指令地址还没有送到 PC 中，那么所取的下条指令就不是正确的，因而发生控制冒险。</li>
+<li>可以看出，如果确定下条指令地址所用时间较长，就会因为来不及在一个时钟周期内得到正确的 PC 值而发生控制冒险。通常，转移类指令会发生控制冒险，例如，分支指令（条件转移指令）要根据条件测试结果来确定 PC 的值，因而会发生控制冒险；返回指令需要从存储器中读取返回地址送PC，因而也会发生控制冒险。</li>
+</ul>
+</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>组成与系统结构-复习</p><p><a href="http://tianyuzhou.github.io/2020/12/17/组成与系统结构-复习/">http://tianyuzhou.github.io/2020/12/17/组成与系统结构-复习/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>TIANYUZHOU</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2020-12-17</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-02-17</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/">计算机组成与系统结构</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=602d045cb772eb001285a6af&amp;product=sticky-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/wodezhibaoshoukuanma.jpg" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/wodeweixinshoukuanma.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/12/20/%E5%BA%94%E7%94%A8%E5%B1%82/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">应用层</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/12/15/%E8%BF%90%E8%BE%93%E5%B1%82/"><span class="level-item">运输层</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>new Valine({
+            el: '#valine-thread' ,
+            appId: "A2kHmiggH1okBvKiadft61wn-gzGzoHsz",
+            appKey: "vSLtbph2vNIIeyBEDtPk8RGX",
+            placeholder: "快来评论吧！",
+            avatar: "wavatar",
+            
+            meta: ["nick","mail","link"],
+            pageSize: 10,
+            lang: "zh-CN",
+            
+            highlight: true,
+            
+            
+            
+            
+            
+            requiredFields: [],
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/%E6%88%91%E7%9A%84%E5%A4%B4%E5%83%8F.jpg" alt="TIANYU同学"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">TIANYU同学</p><p class="is-size-6 is-block">计算机硕士研究生</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>四川 成都</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">27</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/TIANYUZHOU" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/TIANYUZHOU"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="微博" href="https://m.weibo.cn/u/2911735563?uid=2911735563&amp;t=0&amp;luicode=10000011&amp;lfid=100103type%3D1%26q%3Dcuz_tian"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/rss.xml"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://space.bilibili.com/381497449" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的B站</span></span><span class="level-right"><span class="level-item tag">space.bilibili.com</span></span></a></li><li><a class="level is-mobile" href="https://www.baidu.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">百度搜索</span></span><span class="level-right"><span class="level-item tag">www.baidu.com</span></span></a></li><li><a class="level is-mobile" href="https://cn.bing.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">必应搜索</span></span><span class="level-right"><span class="level-item tag">cn.bing.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/"><span class="level-start"><span class="level-item">一些小坑</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">学习笔记</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%91%84%E4%B8%8E%E5%BD%B1/"><span class="level-start"><span class="level-item">摄与影</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%AD%8C%E5%8D%95/"><span class="level-start"><span class="level-item">歌单</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%84%9A%E6%9C%AC/"><span class="level-start"><span class="level-item">脚本</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%A7%86%E9%A2%91/"><span class="level-start"><span class="level-item">视频</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><figure class="media-left"><a class="image" href="/2022/01/24/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/"><img src="/Mainpic/27.jpg" alt="LeetCode刷题笔记"></a></figure><div class="media-content"><p class="date"><time dateTime="2022-01-24T12:33:33.000Z">2022-01-24</time></p><p class="title"><a href="/2022/01/24/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">LeetCode刷题笔记</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2022/01/03/%E7%9B%B8%E5%86%8C/"><img src="/Mainpic/9.jpg" alt="我的图库"></a></figure><div class="media-content"><p class="date"><time dateTime="2022-01-03T14:30:00.000Z">2022-01-03</time></p><p class="title"><a href="/2022/01/03/%E7%9B%B8%E5%86%8C/">我的图库</a></p><p class="categories"><a href="/categories/%E6%91%84%E4%B8%8E%E5%BD%B1/">摄与影</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/01/10/%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%A6%82%E5%BF%B5/"><img src="/Mainpic/24.jpg" alt="数据库-概念"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-01-10T03:06:47.000Z">2021-01-10</time></p><p class="title"><a href="/2021/01/10/%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%A6%82%E5%BF%B5/">数据库-概念</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/01/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AD%E5%8F%A5/"><img src="/Mainpic/24.jpg" alt="数据库语句"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-01-03T12:45:46.000Z">2021-01-03</time></p><p class="title"><a href="/2021/01/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AD%E5%8F%A5/">数据库语句</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2020/12/31/%E7%89%A9%E7%90%86%E5%B1%82/"><img src="/Mainpic/22.jpg" alt="物理层"></a></figure><div class="media-content"><p class="date"><time dateTime="2020-12-31T00:22:36.000Z">2020-12-31</time></p><p class="title"><a href="/2020/12/31/%E7%89%A9%E7%90%86%E5%B1%82/">物理层</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">一月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">十二月 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">十一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">十月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">九月 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/02/"><span class="level-start"><span class="level-item">二月 2020</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/80%C3%9786%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"><span class="tag">80×86汇编语言</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/"><span class="tag">C++内联函数</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/HTML5-CSS-JS%E5%88%9D%E6%AD%A5/"><span class="tag">HTML5+CSS+JS初步</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LeetCode/"><span class="tag">LeetCode</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python%E5%AD%A6%E4%B9%A0/"><span class="tag">Python学习</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python%E5%BA%94%E7%94%A8-%E7%88%AC%E8%99%AB/"><span class="tag">Python应用(爬虫)</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python%E5%BA%94%E7%94%A8-%E7%88%AC%E8%99%AB-XPath/"><span class="tag">Python应用(爬虫-XPath)</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python%E8%87%AA%E5%8A%A8%E6%89%93%E5%8D%A1/"><span class="tag">Python自动打卡</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/VS-Code%E5%B0%8F%E5%9D%91/"><span class="tag">VS Code小坑</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E5%8C%BA%E3%80%81%E5%88%86%E6%AE%B5%E3%80%81%E6%AE%B5%E9%A1%B5%E5%BC%8F/"><span class="tag">分区、分段、段页式</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%BE%E5%BA%93/"><span class="tag">图库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E5%91%A8%E6%9D%B0%E4%BC%A6/"><span class="tag">我的歌单-周杰伦</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E6%9E%97%E4%BF%8A%E6%9D%B0/"><span class="tag">我的歌单-林俊杰</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E8%B5%B5%E6%B5%B7%E6%B4%8B/"><span class="tag">我的歌单-赵海洋</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%88%91%E7%9A%84%E6%AD%8C%E5%8D%95-%E9%99%88%E5%A5%95%E8%BF%85/"><span class="tag">我的歌单-陈奕迅</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8B%93%E5%B1%95/"><span class="tag">拓展</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="tag">操作系统</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/"><span class="tag">操作系统-课后习题</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"><span class="tag">数据挖掘</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%97%85%E8%A1%8C/"><span class="tag">旅行</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"><span class="tag">第一篇文章</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/"><span class="tag">算法分析与设计</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E6%8F%92%E4%BB%B6%E5%B0%8F%E5%9D%91/"><span class="tag">网易云插件小坑</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%A7%86%E9%A2%91%E4%BD%9C%E5%93%81/"><span class="tag">视频作品</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/"><span class="tag">计算机组成与系统结构</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="tag">计算机网络</span><span class="tag">7</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=ztyzhou/YjNL&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="ztyzhou/YjNL" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/2.png" alt="程序员的文章" height="28"></a><p class="is-size-7"><span>&copy; 2023 TIANYUZHOU</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="摄与影" href="https://ztyzhou.com/categories/%E6%91%84%E4%B8%8E%E5%BD%B1/"><i class="fas fa-camera-retro"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="视频" href="https://ztyzhou.com/2020/02/01/%E8%A7%86%E9%A2%91/"><i class="fas fa-spinner fa-spin"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="GitHub 登录" href="https://github.com/"><i class="fab fa-github"></i></a></p></div><div style="text-align:center"><p>备案号：<a target="_blank" rel="noopener" href="https://beian.miit.gov.cn">蜀ICP备20006402号-2</a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
